@@ -1,0 +1,72 @@
+name: care_sync
+description: "A UK NHS-inspired personal health and appointment tracker app."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  flutter_bloc: ^8.1.3
+  equatable: ^2.0.5
+  
+  # Local Storage
+  isar: ^3.1.0
+  isar_flutter_libs: ^3.1.0
+  path_provider: ^2.1.1
+  
+  # Dependency Injection
+  get_it: ^7.6.4
+  injectable: ^2.3.2
+  
+  # Navigation
+  go_router: ^12.1.1
+  
+  # Code Generation
+  freezed_annotation: ^2.4.1
+  json_annotation: ^4.8.1
+  
+  # Networking
+  dio: ^5.3.3
+  connectivity_plus: ^5.0.2
+  internet_connection_checker: ^1.0.0+1
+  
+  # UI Components & Animations
+  flutter_screenutil: ^5.9.0
+  fl_chart: ^0.65.0
+  flutter_animate: ^4.3.0
+  cached_network_image: ^3.3.0
+  shimmer: ^3.0.0
+  lottie: ^2.7.0
+  table_calendar: ^3.0.9
+  flutter_slidable: ^3.0.1
+  google_fonts: ^6.1.0
+  cupertino_icons: ^1.0.8
+
+  # Utils
+  flutter_local_notifications: ^16.1.0
+  permission_handler: ^11.0.1
+  intl: ^0.18.1
+  smooth_page_indicator: ^2.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.8
+  
+  # Code Generation
+  freezed: ^2.4.7
+  json_serializable: ^6.7.1
+  isar_generator: ^3.1.0
+  injectable_generator: ^2.4.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/animations/
