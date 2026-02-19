@@ -59,9 +59,12 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
               child: Column(
                 children: [
                   SizedBox(height: 24.h),
-                  _buildTextField('First Name', _firstNameController),
+                  SizedBox(height: 24.h),
+                  _buildTextField('First Name', _firstNameController,
+                      textCapitalization: TextCapitalization.words),
                   SizedBox(height: 16.h),
-                  _buildTextField('Last Name', _lastNameController),
+                  _buildTextField('Last Name', _lastNameController,
+                      textCapitalization: TextCapitalization.words),
                   SizedBox(height: 16.h),
                   _buildTextField('NHS Number', _nhsNumberController,
                       keyboardType: TextInputType.number),
@@ -92,7 +95,9 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
                     ),
                   ),
                   SizedBox(height: 16.h),
-                  _buildTextField('GP Practice', _gpPracticeController),
+                  SizedBox(height: 16.h),
+                  _buildTextField('GP Practice', _gpPracticeController,
+                      textCapitalization: TextCapitalization.words),
                   SizedBox(height: 24.h),
                   ElevatedButton(
                     onPressed: _saveProfile,
@@ -132,10 +137,12 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
   }
 
   Widget _buildTextField(String label, TextEditingController controller,
-      {TextInputType? keyboardType}) {
+      {TextInputType? keyboardType,
+      TextCapitalization textCapitalization = TextCapitalization.none}) {
     return TextField(
       controller: controller,
       keyboardType: keyboardType,
+      textCapitalization: textCapitalization,
       decoration: InputDecoration(
         labelText: label,
         border: const OutlineInputBorder(),

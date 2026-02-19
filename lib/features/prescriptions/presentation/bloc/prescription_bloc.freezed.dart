@@ -20,18 +20,27 @@ mixin _$PrescriptionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadPrescriptions,
     required TResult Function(int id, bool enabled) toggleReminder,
+    required TResult Function(int id) deletePrescription,
+    required TResult Function(Prescription prescription) addPrescription,
+    required TResult Function(Prescription prescription) updatePrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadPrescriptions,
     TResult? Function(int id, bool enabled)? toggleReminder,
+    TResult? Function(int id)? deletePrescription,
+    TResult? Function(Prescription prescription)? addPrescription,
+    TResult? Function(Prescription prescription)? updatePrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadPrescriptions,
     TResult Function(int id, bool enabled)? toggleReminder,
+    TResult Function(int id)? deletePrescription,
+    TResult Function(Prescription prescription)? addPrescription,
+    TResult Function(Prescription prescription)? updatePrescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +48,27 @@ mixin _$PrescriptionEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPrescriptions value) loadPrescriptions,
     required TResult Function(_ToggleReminder value) toggleReminder,
+    required TResult Function(_DeletePrescription value) deletePrescription,
+    required TResult Function(_AddPrescription value) addPrescription,
+    required TResult Function(_UpdatePrescription value) updatePrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPrescriptions value)? loadPrescriptions,
     TResult? Function(_ToggleReminder value)? toggleReminder,
+    TResult? Function(_DeletePrescription value)? deletePrescription,
+    TResult? Function(_AddPrescription value)? addPrescription,
+    TResult? Function(_UpdatePrescription value)? updatePrescription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPrescriptions value)? loadPrescriptions,
     TResult Function(_ToggleReminder value)? toggleReminder,
+    TResult Function(_DeletePrescription value)? deletePrescription,
+    TResult Function(_AddPrescription value)? addPrescription,
+    TResult Function(_UpdatePrescription value)? updatePrescription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +132,9 @@ class _$LoadPrescriptionsImpl implements _LoadPrescriptions {
   TResult when<TResult extends Object?>({
     required TResult Function() loadPrescriptions,
     required TResult Function(int id, bool enabled) toggleReminder,
+    required TResult Function(int id) deletePrescription,
+    required TResult Function(Prescription prescription) addPrescription,
+    required TResult Function(Prescription prescription) updatePrescription,
   }) {
     return loadPrescriptions();
   }
@@ -123,6 +144,9 @@ class _$LoadPrescriptionsImpl implements _LoadPrescriptions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadPrescriptions,
     TResult? Function(int id, bool enabled)? toggleReminder,
+    TResult? Function(int id)? deletePrescription,
+    TResult? Function(Prescription prescription)? addPrescription,
+    TResult? Function(Prescription prescription)? updatePrescription,
   }) {
     return loadPrescriptions?.call();
   }
@@ -132,6 +156,9 @@ class _$LoadPrescriptionsImpl implements _LoadPrescriptions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadPrescriptions,
     TResult Function(int id, bool enabled)? toggleReminder,
+    TResult Function(int id)? deletePrescription,
+    TResult Function(Prescription prescription)? addPrescription,
+    TResult Function(Prescription prescription)? updatePrescription,
     required TResult orElse(),
   }) {
     if (loadPrescriptions != null) {
@@ -145,6 +172,9 @@ class _$LoadPrescriptionsImpl implements _LoadPrescriptions {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPrescriptions value) loadPrescriptions,
     required TResult Function(_ToggleReminder value) toggleReminder,
+    required TResult Function(_DeletePrescription value) deletePrescription,
+    required TResult Function(_AddPrescription value) addPrescription,
+    required TResult Function(_UpdatePrescription value) updatePrescription,
   }) {
     return loadPrescriptions(this);
   }
@@ -154,6 +184,9 @@ class _$LoadPrescriptionsImpl implements _LoadPrescriptions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPrescriptions value)? loadPrescriptions,
     TResult? Function(_ToggleReminder value)? toggleReminder,
+    TResult? Function(_DeletePrescription value)? deletePrescription,
+    TResult? Function(_AddPrescription value)? addPrescription,
+    TResult? Function(_UpdatePrescription value)? updatePrescription,
   }) {
     return loadPrescriptions?.call(this);
   }
@@ -163,6 +196,9 @@ class _$LoadPrescriptionsImpl implements _LoadPrescriptions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPrescriptions value)? loadPrescriptions,
     TResult Function(_ToggleReminder value)? toggleReminder,
+    TResult Function(_DeletePrescription value)? deletePrescription,
+    TResult Function(_AddPrescription value)? addPrescription,
+    TResult Function(_UpdatePrescription value)? updatePrescription,
     required TResult orElse(),
   }) {
     if (loadPrescriptions != null) {
@@ -251,6 +287,9 @@ class _$ToggleReminderImpl implements _ToggleReminder {
   TResult when<TResult extends Object?>({
     required TResult Function() loadPrescriptions,
     required TResult Function(int id, bool enabled) toggleReminder,
+    required TResult Function(int id) deletePrescription,
+    required TResult Function(Prescription prescription) addPrescription,
+    required TResult Function(Prescription prescription) updatePrescription,
   }) {
     return toggleReminder(id, enabled);
   }
@@ -260,6 +299,9 @@ class _$ToggleReminderImpl implements _ToggleReminder {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadPrescriptions,
     TResult? Function(int id, bool enabled)? toggleReminder,
+    TResult? Function(int id)? deletePrescription,
+    TResult? Function(Prescription prescription)? addPrescription,
+    TResult? Function(Prescription prescription)? updatePrescription,
   }) {
     return toggleReminder?.call(id, enabled);
   }
@@ -269,6 +311,9 @@ class _$ToggleReminderImpl implements _ToggleReminder {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadPrescriptions,
     TResult Function(int id, bool enabled)? toggleReminder,
+    TResult Function(int id)? deletePrescription,
+    TResult Function(Prescription prescription)? addPrescription,
+    TResult Function(Prescription prescription)? updatePrescription,
     required TResult orElse(),
   }) {
     if (toggleReminder != null) {
@@ -282,6 +327,9 @@ class _$ToggleReminderImpl implements _ToggleReminder {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadPrescriptions value) loadPrescriptions,
     required TResult Function(_ToggleReminder value) toggleReminder,
+    required TResult Function(_DeletePrescription value) deletePrescription,
+    required TResult Function(_AddPrescription value) addPrescription,
+    required TResult Function(_UpdatePrescription value) updatePrescription,
   }) {
     return toggleReminder(this);
   }
@@ -291,6 +339,9 @@ class _$ToggleReminderImpl implements _ToggleReminder {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadPrescriptions value)? loadPrescriptions,
     TResult? Function(_ToggleReminder value)? toggleReminder,
+    TResult? Function(_DeletePrescription value)? deletePrescription,
+    TResult? Function(_AddPrescription value)? addPrescription,
+    TResult? Function(_UpdatePrescription value)? updatePrescription,
   }) {
     return toggleReminder?.call(this);
   }
@@ -300,6 +351,9 @@ class _$ToggleReminderImpl implements _ToggleReminder {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadPrescriptions value)? loadPrescriptions,
     TResult Function(_ToggleReminder value)? toggleReminder,
+    TResult Function(_DeletePrescription value)? deletePrescription,
+    TResult Function(_AddPrescription value)? addPrescription,
+    TResult Function(_UpdatePrescription value)? updatePrescription,
     required TResult orElse(),
   }) {
     if (toggleReminder != null) {
@@ -317,6 +371,466 @@ abstract class _ToggleReminder implements PrescriptionEvent {
   bool get enabled;
   @JsonKey(ignore: true)
   _$$ToggleReminderImplCopyWith<_$ToggleReminderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeletePrescriptionImplCopyWith<$Res> {
+  factory _$$DeletePrescriptionImplCopyWith(_$DeletePrescriptionImpl value,
+          $Res Function(_$DeletePrescriptionImpl) then) =
+      __$$DeletePrescriptionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$DeletePrescriptionImplCopyWithImpl<$Res>
+    extends _$PrescriptionEventCopyWithImpl<$Res, _$DeletePrescriptionImpl>
+    implements _$$DeletePrescriptionImplCopyWith<$Res> {
+  __$$DeletePrescriptionImplCopyWithImpl(_$DeletePrescriptionImpl _value,
+      $Res Function(_$DeletePrescriptionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeletePrescriptionImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeletePrescriptionImpl implements _DeletePrescription {
+  const _$DeletePrescriptionImpl(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'PrescriptionEvent.deletePrescription(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletePrescriptionImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletePrescriptionImplCopyWith<_$DeletePrescriptionImpl> get copyWith =>
+      __$$DeletePrescriptionImplCopyWithImpl<_$DeletePrescriptionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadPrescriptions,
+    required TResult Function(int id, bool enabled) toggleReminder,
+    required TResult Function(int id) deletePrescription,
+    required TResult Function(Prescription prescription) addPrescription,
+    required TResult Function(Prescription prescription) updatePrescription,
+  }) {
+    return deletePrescription(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadPrescriptions,
+    TResult? Function(int id, bool enabled)? toggleReminder,
+    TResult? Function(int id)? deletePrescription,
+    TResult? Function(Prescription prescription)? addPrescription,
+    TResult? Function(Prescription prescription)? updatePrescription,
+  }) {
+    return deletePrescription?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadPrescriptions,
+    TResult Function(int id, bool enabled)? toggleReminder,
+    TResult Function(int id)? deletePrescription,
+    TResult Function(Prescription prescription)? addPrescription,
+    TResult Function(Prescription prescription)? updatePrescription,
+    required TResult orElse(),
+  }) {
+    if (deletePrescription != null) {
+      return deletePrescription(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPrescriptions value) loadPrescriptions,
+    required TResult Function(_ToggleReminder value) toggleReminder,
+    required TResult Function(_DeletePrescription value) deletePrescription,
+    required TResult Function(_AddPrescription value) addPrescription,
+    required TResult Function(_UpdatePrescription value) updatePrescription,
+  }) {
+    return deletePrescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPrescriptions value)? loadPrescriptions,
+    TResult? Function(_ToggleReminder value)? toggleReminder,
+    TResult? Function(_DeletePrescription value)? deletePrescription,
+    TResult? Function(_AddPrescription value)? addPrescription,
+    TResult? Function(_UpdatePrescription value)? updatePrescription,
+  }) {
+    return deletePrescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPrescriptions value)? loadPrescriptions,
+    TResult Function(_ToggleReminder value)? toggleReminder,
+    TResult Function(_DeletePrescription value)? deletePrescription,
+    TResult Function(_AddPrescription value)? addPrescription,
+    TResult Function(_UpdatePrescription value)? updatePrescription,
+    required TResult orElse(),
+  }) {
+    if (deletePrescription != null) {
+      return deletePrescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletePrescription implements PrescriptionEvent {
+  const factory _DeletePrescription(final int id) = _$DeletePrescriptionImpl;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$DeletePrescriptionImplCopyWith<_$DeletePrescriptionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddPrescriptionImplCopyWith<$Res> {
+  factory _$$AddPrescriptionImplCopyWith(_$AddPrescriptionImpl value,
+          $Res Function(_$AddPrescriptionImpl) then) =
+      __$$AddPrescriptionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Prescription prescription});
+}
+
+/// @nodoc
+class __$$AddPrescriptionImplCopyWithImpl<$Res>
+    extends _$PrescriptionEventCopyWithImpl<$Res, _$AddPrescriptionImpl>
+    implements _$$AddPrescriptionImplCopyWith<$Res> {
+  __$$AddPrescriptionImplCopyWithImpl(
+      _$AddPrescriptionImpl _value, $Res Function(_$AddPrescriptionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? prescription = null,
+  }) {
+    return _then(_$AddPrescriptionImpl(
+      null == prescription
+          ? _value.prescription
+          : prescription // ignore: cast_nullable_to_non_nullable
+              as Prescription,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AddPrescriptionImpl implements _AddPrescription {
+  const _$AddPrescriptionImpl(this.prescription);
+
+  @override
+  final Prescription prescription;
+
+  @override
+  String toString() {
+    return 'PrescriptionEvent.addPrescription(prescription: $prescription)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddPrescriptionImpl &&
+            (identical(other.prescription, prescription) ||
+                other.prescription == prescription));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, prescription);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddPrescriptionImplCopyWith<_$AddPrescriptionImpl> get copyWith =>
+      __$$AddPrescriptionImplCopyWithImpl<_$AddPrescriptionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadPrescriptions,
+    required TResult Function(int id, bool enabled) toggleReminder,
+    required TResult Function(int id) deletePrescription,
+    required TResult Function(Prescription prescription) addPrescription,
+    required TResult Function(Prescription prescription) updatePrescription,
+  }) {
+    return addPrescription(prescription);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadPrescriptions,
+    TResult? Function(int id, bool enabled)? toggleReminder,
+    TResult? Function(int id)? deletePrescription,
+    TResult? Function(Prescription prescription)? addPrescription,
+    TResult? Function(Prescription prescription)? updatePrescription,
+  }) {
+    return addPrescription?.call(prescription);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadPrescriptions,
+    TResult Function(int id, bool enabled)? toggleReminder,
+    TResult Function(int id)? deletePrescription,
+    TResult Function(Prescription prescription)? addPrescription,
+    TResult Function(Prescription prescription)? updatePrescription,
+    required TResult orElse(),
+  }) {
+    if (addPrescription != null) {
+      return addPrescription(prescription);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPrescriptions value) loadPrescriptions,
+    required TResult Function(_ToggleReminder value) toggleReminder,
+    required TResult Function(_DeletePrescription value) deletePrescription,
+    required TResult Function(_AddPrescription value) addPrescription,
+    required TResult Function(_UpdatePrescription value) updatePrescription,
+  }) {
+    return addPrescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPrescriptions value)? loadPrescriptions,
+    TResult? Function(_ToggleReminder value)? toggleReminder,
+    TResult? Function(_DeletePrescription value)? deletePrescription,
+    TResult? Function(_AddPrescription value)? addPrescription,
+    TResult? Function(_UpdatePrescription value)? updatePrescription,
+  }) {
+    return addPrescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPrescriptions value)? loadPrescriptions,
+    TResult Function(_ToggleReminder value)? toggleReminder,
+    TResult Function(_DeletePrescription value)? deletePrescription,
+    TResult Function(_AddPrescription value)? addPrescription,
+    TResult Function(_UpdatePrescription value)? updatePrescription,
+    required TResult orElse(),
+  }) {
+    if (addPrescription != null) {
+      return addPrescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddPrescription implements PrescriptionEvent {
+  const factory _AddPrescription(final Prescription prescription) =
+      _$AddPrescriptionImpl;
+
+  Prescription get prescription;
+  @JsonKey(ignore: true)
+  _$$AddPrescriptionImplCopyWith<_$AddPrescriptionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdatePrescriptionImplCopyWith<$Res> {
+  factory _$$UpdatePrescriptionImplCopyWith(_$UpdatePrescriptionImpl value,
+          $Res Function(_$UpdatePrescriptionImpl) then) =
+      __$$UpdatePrescriptionImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Prescription prescription});
+}
+
+/// @nodoc
+class __$$UpdatePrescriptionImplCopyWithImpl<$Res>
+    extends _$PrescriptionEventCopyWithImpl<$Res, _$UpdatePrescriptionImpl>
+    implements _$$UpdatePrescriptionImplCopyWith<$Res> {
+  __$$UpdatePrescriptionImplCopyWithImpl(_$UpdatePrescriptionImpl _value,
+      $Res Function(_$UpdatePrescriptionImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? prescription = null,
+  }) {
+    return _then(_$UpdatePrescriptionImpl(
+      null == prescription
+          ? _value.prescription
+          : prescription // ignore: cast_nullable_to_non_nullable
+              as Prescription,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdatePrescriptionImpl implements _UpdatePrescription {
+  const _$UpdatePrescriptionImpl(this.prescription);
+
+  @override
+  final Prescription prescription;
+
+  @override
+  String toString() {
+    return 'PrescriptionEvent.updatePrescription(prescription: $prescription)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdatePrescriptionImpl &&
+            (identical(other.prescription, prescription) ||
+                other.prescription == prescription));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, prescription);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdatePrescriptionImplCopyWith<_$UpdatePrescriptionImpl> get copyWith =>
+      __$$UpdatePrescriptionImplCopyWithImpl<_$UpdatePrescriptionImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadPrescriptions,
+    required TResult Function(int id, bool enabled) toggleReminder,
+    required TResult Function(int id) deletePrescription,
+    required TResult Function(Prescription prescription) addPrescription,
+    required TResult Function(Prescription prescription) updatePrescription,
+  }) {
+    return updatePrescription(prescription);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadPrescriptions,
+    TResult? Function(int id, bool enabled)? toggleReminder,
+    TResult? Function(int id)? deletePrescription,
+    TResult? Function(Prescription prescription)? addPrescription,
+    TResult? Function(Prescription prescription)? updatePrescription,
+  }) {
+    return updatePrescription?.call(prescription);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadPrescriptions,
+    TResult Function(int id, bool enabled)? toggleReminder,
+    TResult Function(int id)? deletePrescription,
+    TResult Function(Prescription prescription)? addPrescription,
+    TResult Function(Prescription prescription)? updatePrescription,
+    required TResult orElse(),
+  }) {
+    if (updatePrescription != null) {
+      return updatePrescription(prescription);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadPrescriptions value) loadPrescriptions,
+    required TResult Function(_ToggleReminder value) toggleReminder,
+    required TResult Function(_DeletePrescription value) deletePrescription,
+    required TResult Function(_AddPrescription value) addPrescription,
+    required TResult Function(_UpdatePrescription value) updatePrescription,
+  }) {
+    return updatePrescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadPrescriptions value)? loadPrescriptions,
+    TResult? Function(_ToggleReminder value)? toggleReminder,
+    TResult? Function(_DeletePrescription value)? deletePrescription,
+    TResult? Function(_AddPrescription value)? addPrescription,
+    TResult? Function(_UpdatePrescription value)? updatePrescription,
+  }) {
+    return updatePrescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadPrescriptions value)? loadPrescriptions,
+    TResult Function(_ToggleReminder value)? toggleReminder,
+    TResult Function(_DeletePrescription value)? deletePrescription,
+    TResult Function(_AddPrescription value)? addPrescription,
+    TResult Function(_UpdatePrescription value)? updatePrescription,
+    required TResult orElse(),
+  }) {
+    if (updatePrescription != null) {
+      return updatePrescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePrescription implements PrescriptionEvent {
+  const factory _UpdatePrescription(final Prescription prescription) =
+      _$UpdatePrescriptionImpl;
+
+  Prescription get prescription;
+  @JsonKey(ignore: true)
+  _$$UpdatePrescriptionImplCopyWith<_$UpdatePrescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

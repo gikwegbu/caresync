@@ -20,18 +20,24 @@ mixin _$HealthMetricEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadMetrics,
     required TResult Function(HealthMetric metric) logMetric,
+    required TResult Function(HealthMetric metric) updateMetric,
+    required TResult Function(int id) deleteMetric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadMetrics,
     TResult? Function(HealthMetric metric)? logMetric,
+    TResult? Function(HealthMetric metric)? updateMetric,
+    TResult? Function(int id)? deleteMetric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadMetrics,
     TResult Function(HealthMetric metric)? logMetric,
+    TResult Function(HealthMetric metric)? updateMetric,
+    TResult Function(int id)? deleteMetric,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$HealthMetricEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadMetrics value) loadMetrics,
     required TResult Function(_LogMetric value) logMetric,
+    required TResult Function(_UpdateMetric value) updateMetric,
+    required TResult Function(_DeleteMetric value) deleteMetric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadMetrics value)? loadMetrics,
     TResult? Function(_LogMetric value)? logMetric,
+    TResult? Function(_UpdateMetric value)? updateMetric,
+    TResult? Function(_DeleteMetric value)? deleteMetric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadMetrics value)? loadMetrics,
     TResult Function(_LogMetric value)? logMetric,
+    TResult Function(_UpdateMetric value)? updateMetric,
+    TResult Function(_DeleteMetric value)? deleteMetric,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +126,8 @@ class _$LoadMetricsImpl implements _LoadMetrics {
   TResult when<TResult extends Object?>({
     required TResult Function() loadMetrics,
     required TResult Function(HealthMetric metric) logMetric,
+    required TResult Function(HealthMetric metric) updateMetric,
+    required TResult Function(int id) deleteMetric,
   }) {
     return loadMetrics();
   }
@@ -123,6 +137,8 @@ class _$LoadMetricsImpl implements _LoadMetrics {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadMetrics,
     TResult? Function(HealthMetric metric)? logMetric,
+    TResult? Function(HealthMetric metric)? updateMetric,
+    TResult? Function(int id)? deleteMetric,
   }) {
     return loadMetrics?.call();
   }
@@ -132,6 +148,8 @@ class _$LoadMetricsImpl implements _LoadMetrics {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadMetrics,
     TResult Function(HealthMetric metric)? logMetric,
+    TResult Function(HealthMetric metric)? updateMetric,
+    TResult Function(int id)? deleteMetric,
     required TResult orElse(),
   }) {
     if (loadMetrics != null) {
@@ -145,6 +163,8 @@ class _$LoadMetricsImpl implements _LoadMetrics {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadMetrics value) loadMetrics,
     required TResult Function(_LogMetric value) logMetric,
+    required TResult Function(_UpdateMetric value) updateMetric,
+    required TResult Function(_DeleteMetric value) deleteMetric,
   }) {
     return loadMetrics(this);
   }
@@ -154,6 +174,8 @@ class _$LoadMetricsImpl implements _LoadMetrics {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadMetrics value)? loadMetrics,
     TResult? Function(_LogMetric value)? logMetric,
+    TResult? Function(_UpdateMetric value)? updateMetric,
+    TResult? Function(_DeleteMetric value)? deleteMetric,
   }) {
     return loadMetrics?.call(this);
   }
@@ -163,6 +185,8 @@ class _$LoadMetricsImpl implements _LoadMetrics {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadMetrics value)? loadMetrics,
     TResult Function(_LogMetric value)? logMetric,
+    TResult Function(_UpdateMetric value)? updateMetric,
+    TResult Function(_DeleteMetric value)? deleteMetric,
     required TResult orElse(),
   }) {
     if (loadMetrics != null) {
@@ -242,6 +266,8 @@ class _$LogMetricImpl implements _LogMetric {
   TResult when<TResult extends Object?>({
     required TResult Function() loadMetrics,
     required TResult Function(HealthMetric metric) logMetric,
+    required TResult Function(HealthMetric metric) updateMetric,
+    required TResult Function(int id) deleteMetric,
   }) {
     return logMetric(metric);
   }
@@ -251,6 +277,8 @@ class _$LogMetricImpl implements _LogMetric {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadMetrics,
     TResult? Function(HealthMetric metric)? logMetric,
+    TResult? Function(HealthMetric metric)? updateMetric,
+    TResult? Function(int id)? deleteMetric,
   }) {
     return logMetric?.call(metric);
   }
@@ -260,6 +288,8 @@ class _$LogMetricImpl implements _LogMetric {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadMetrics,
     TResult Function(HealthMetric metric)? logMetric,
+    TResult Function(HealthMetric metric)? updateMetric,
+    TResult Function(int id)? deleteMetric,
     required TResult orElse(),
   }) {
     if (logMetric != null) {
@@ -273,6 +303,8 @@ class _$LogMetricImpl implements _LogMetric {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadMetrics value) loadMetrics,
     required TResult Function(_LogMetric value) logMetric,
+    required TResult Function(_UpdateMetric value) updateMetric,
+    required TResult Function(_DeleteMetric value) deleteMetric,
   }) {
     return logMetric(this);
   }
@@ -282,6 +314,8 @@ class _$LogMetricImpl implements _LogMetric {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadMetrics value)? loadMetrics,
     TResult? Function(_LogMetric value)? logMetric,
+    TResult? Function(_UpdateMetric value)? updateMetric,
+    TResult? Function(_DeleteMetric value)? deleteMetric,
   }) {
     return logMetric?.call(this);
   }
@@ -291,6 +325,8 @@ class _$LogMetricImpl implements _LogMetric {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadMetrics value)? loadMetrics,
     TResult Function(_LogMetric value)? logMetric,
+    TResult Function(_UpdateMetric value)? updateMetric,
+    TResult Function(_DeleteMetric value)? deleteMetric,
     required TResult orElse(),
   }) {
     if (logMetric != null) {
@@ -306,6 +342,296 @@ abstract class _LogMetric implements HealthMetricEvent {
   HealthMetric get metric;
   @JsonKey(ignore: true)
   _$$LogMetricImplCopyWith<_$LogMetricImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateMetricImplCopyWith<$Res> {
+  factory _$$UpdateMetricImplCopyWith(
+          _$UpdateMetricImpl value, $Res Function(_$UpdateMetricImpl) then) =
+      __$$UpdateMetricImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HealthMetric metric});
+}
+
+/// @nodoc
+class __$$UpdateMetricImplCopyWithImpl<$Res>
+    extends _$HealthMetricEventCopyWithImpl<$Res, _$UpdateMetricImpl>
+    implements _$$UpdateMetricImplCopyWith<$Res> {
+  __$$UpdateMetricImplCopyWithImpl(
+      _$UpdateMetricImpl _value, $Res Function(_$UpdateMetricImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? metric = null,
+  }) {
+    return _then(_$UpdateMetricImpl(
+      null == metric
+          ? _value.metric
+          : metric // ignore: cast_nullable_to_non_nullable
+              as HealthMetric,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateMetricImpl implements _UpdateMetric {
+  const _$UpdateMetricImpl(this.metric);
+
+  @override
+  final HealthMetric metric;
+
+  @override
+  String toString() {
+    return 'HealthMetricEvent.updateMetric(metric: $metric)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateMetricImpl &&
+            (identical(other.metric, metric) || other.metric == metric));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, metric);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateMetricImplCopyWith<_$UpdateMetricImpl> get copyWith =>
+      __$$UpdateMetricImplCopyWithImpl<_$UpdateMetricImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadMetrics,
+    required TResult Function(HealthMetric metric) logMetric,
+    required TResult Function(HealthMetric metric) updateMetric,
+    required TResult Function(int id) deleteMetric,
+  }) {
+    return updateMetric(metric);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadMetrics,
+    TResult? Function(HealthMetric metric)? logMetric,
+    TResult? Function(HealthMetric metric)? updateMetric,
+    TResult? Function(int id)? deleteMetric,
+  }) {
+    return updateMetric?.call(metric);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadMetrics,
+    TResult Function(HealthMetric metric)? logMetric,
+    TResult Function(HealthMetric metric)? updateMetric,
+    TResult Function(int id)? deleteMetric,
+    required TResult orElse(),
+  }) {
+    if (updateMetric != null) {
+      return updateMetric(metric);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadMetrics value) loadMetrics,
+    required TResult Function(_LogMetric value) logMetric,
+    required TResult Function(_UpdateMetric value) updateMetric,
+    required TResult Function(_DeleteMetric value) deleteMetric,
+  }) {
+    return updateMetric(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadMetrics value)? loadMetrics,
+    TResult? Function(_LogMetric value)? logMetric,
+    TResult? Function(_UpdateMetric value)? updateMetric,
+    TResult? Function(_DeleteMetric value)? deleteMetric,
+  }) {
+    return updateMetric?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadMetrics value)? loadMetrics,
+    TResult Function(_LogMetric value)? logMetric,
+    TResult Function(_UpdateMetric value)? updateMetric,
+    TResult Function(_DeleteMetric value)? deleteMetric,
+    required TResult orElse(),
+  }) {
+    if (updateMetric != null) {
+      return updateMetric(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateMetric implements HealthMetricEvent {
+  const factory _UpdateMetric(final HealthMetric metric) = _$UpdateMetricImpl;
+
+  HealthMetric get metric;
+  @JsonKey(ignore: true)
+  _$$UpdateMetricImplCopyWith<_$UpdateMetricImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteMetricImplCopyWith<$Res> {
+  factory _$$DeleteMetricImplCopyWith(
+          _$DeleteMetricImpl value, $Res Function(_$DeleteMetricImpl) then) =
+      __$$DeleteMetricImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$DeleteMetricImplCopyWithImpl<$Res>
+    extends _$HealthMetricEventCopyWithImpl<$Res, _$DeleteMetricImpl>
+    implements _$$DeleteMetricImplCopyWith<$Res> {
+  __$$DeleteMetricImplCopyWithImpl(
+      _$DeleteMetricImpl _value, $Res Function(_$DeleteMetricImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteMetricImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteMetricImpl implements _DeleteMetric {
+  const _$DeleteMetricImpl(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'HealthMetricEvent.deleteMetric(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteMetricImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteMetricImplCopyWith<_$DeleteMetricImpl> get copyWith =>
+      __$$DeleteMetricImplCopyWithImpl<_$DeleteMetricImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadMetrics,
+    required TResult Function(HealthMetric metric) logMetric,
+    required TResult Function(HealthMetric metric) updateMetric,
+    required TResult Function(int id) deleteMetric,
+  }) {
+    return deleteMetric(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadMetrics,
+    TResult? Function(HealthMetric metric)? logMetric,
+    TResult? Function(HealthMetric metric)? updateMetric,
+    TResult? Function(int id)? deleteMetric,
+  }) {
+    return deleteMetric?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadMetrics,
+    TResult Function(HealthMetric metric)? logMetric,
+    TResult Function(HealthMetric metric)? updateMetric,
+    TResult Function(int id)? deleteMetric,
+    required TResult orElse(),
+  }) {
+    if (deleteMetric != null) {
+      return deleteMetric(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadMetrics value) loadMetrics,
+    required TResult Function(_LogMetric value) logMetric,
+    required TResult Function(_UpdateMetric value) updateMetric,
+    required TResult Function(_DeleteMetric value) deleteMetric,
+  }) {
+    return deleteMetric(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadMetrics value)? loadMetrics,
+    TResult? Function(_LogMetric value)? logMetric,
+    TResult? Function(_UpdateMetric value)? updateMetric,
+    TResult? Function(_DeleteMetric value)? deleteMetric,
+  }) {
+    return deleteMetric?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadMetrics value)? loadMetrics,
+    TResult Function(_LogMetric value)? logMetric,
+    TResult Function(_UpdateMetric value)? updateMetric,
+    TResult Function(_DeleteMetric value)? deleteMetric,
+    required TResult orElse(),
+  }) {
+    if (deleteMetric != null) {
+      return deleteMetric(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteMetric implements HealthMetricEvent {
+  const factory _DeleteMetric(final int id) = _$DeleteMetricImpl;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$DeleteMetricImplCopyWith<_$DeleteMetricImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

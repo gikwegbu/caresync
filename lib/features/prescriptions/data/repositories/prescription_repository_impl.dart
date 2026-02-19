@@ -17,6 +17,13 @@ class PrescriptionRepositoryImpl implements PrescriptionRepository {
   }
 
   @override
+  Stream<List<Prescription>> getPrescriptionsStream() {
+    return _dataSource.getPrescriptionsStream().map((models) {
+      return models.map((e) => e.toEntity()).toList();
+    });
+  }
+
+  @override
   Future<void> addPrescription(Prescription prescription) async {
     await _dataSource.cachePrescription(prescription.toModel());
   }
@@ -41,5 +48,10 @@ class PrescriptionRepositoryImpl implements PrescriptionRepository {
     // Here we might just log it or update a 'lastRequested' field if we had one.
     // For now, we simulate success.
     await Future.delayed(const Duration(seconds: 1));
+  }
+
+  @override
+  Future<void> deletePrescription(int id) async {
+    await _dataSource.deletePrescription(id);
   }
 }

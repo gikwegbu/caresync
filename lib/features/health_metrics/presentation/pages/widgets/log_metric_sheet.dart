@@ -7,14 +7,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LogMetricSheet extends StatefulWidget {
-  const LogMetricSheet({super.key});
+  final HealthMetric? metric;
+
+  const LogMetricSheet({super.key, this.metric});
 
   @override
   State<LogMetricSheet> createState() => _LogMetricSheetState();
 }
 
 class _LogMetricSheetState extends State<LogMetricSheet> {
-  String _selectedType = 'Blood Pressure';
+  late String _selectedType;
   final TextEditingController _valueController = TextEditingController();
   final TextEditingController _notesController = TextEditingController();
 
@@ -32,7 +34,21 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
   };
 
   @override
+  void initState() {
+    super.initState();
+    if (widget.metric != null) {
+      _selectedType = widget.metric!.type;
+      _valueController.text = widget.metric!.value.toString();
+      _notesController.text = widget.metric!.notes ?? '';
+    } else {
+      _selectedType = _types.first;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final isEditing = widget.metric != null;
+
     return Container(
       padding: EdgeInsets.only(
         left: 24.w,
@@ -49,7 +65,7 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Log Health Metric',
+            isEditing ? 'Edit Health Metric' : 'Log Health Metric',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               fontSize: 18.sp,
@@ -71,7 +87,7 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
           SizedBox(height: 16.h),
           TextField(
             controller: _valueController,
-            keyboardType: TextInputType.number,
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             decoration: InputDecoration(
               labelText: 'Value',
               suffixText: _units[_selectedType],
@@ -81,6 +97,9 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
           SizedBox(height: 16.h),
           TextField(
             controller: _notesController,
+            maxLines: 3,
+            textCapitalization: TextCapitalization.sentences,
+            keyboardType: TextInputType.multiline,
             decoration: const InputDecoration(
               labelText: 'Notes (Optional)',
               border: OutlineInputBorder(),
@@ -94,7 +113,7 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
               padding: EdgeInsets.symmetric(vertical: 16.h),
             ),
             child: Text(
-              'Save Metric',
+              isEditing ? 'Update Metric' : 'Save Metric',
               style: GoogleFonts.inter(
                   fontWeight: FontWeight.w600, color: Colors.white),
             ),
@@ -109,15 +128,27 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
 
     final value = double.tryParse(_valueController.text) ?? 0.0;
 
-    final metric = HealthMetric(
-      type: _selectedType,
-      value: value,
-      unit: _units[_selectedType],
-      recordedAt: DateTime.now(),
-      notes: _notesController.text,
-    );
+    final metric = widget.metric?.copyWith(
+          type: _selectedType,
+          value: value,
+          unit: _units[_selectedType] ?? '',
+          notes: _notesController.text,
+        ) ??
+        HealthMetric(
+          type: _selectedType,
+          value: value,
+          unit: _units[_selectedType] ?? '',
+          recordedAt: DateTime.now(),
+          notes: _notesController.text,
+        );
 
-    context.read<HealthMetricBloc>().add(HealthMetricEvent.logMetric(metric));
+    if (widget.metric != null) {
+      context
+          .read<HealthMetricBloc>()
+          .add(HealthMetricEvent.updateMetric(metric));
+    } else {
+      context.read<HealthMetricBloc>().add(HealthMetricEvent.logMetric(metric));
+    }
     Navigator.pop(context);
   }
 }

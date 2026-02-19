@@ -21,6 +21,8 @@ mixin _$AppointmentEvent {
     required TResult Function() loadAppointments,
     required TResult Function(Appointment appointment) bookAppointment,
     required TResult Function(int id) cancelAppointment,
+    required TResult Function(int id) deleteAppointment,
+    required TResult Function(Appointment appointment) updateAppointment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$AppointmentEvent {
     TResult? Function()? loadAppointments,
     TResult? Function(Appointment appointment)? bookAppointment,
     TResult? Function(int id)? cancelAppointment,
+    TResult? Function(int id)? deleteAppointment,
+    TResult? Function(Appointment appointment)? updateAppointment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$AppointmentEvent {
     TResult Function()? loadAppointments,
     TResult Function(Appointment appointment)? bookAppointment,
     TResult Function(int id)? cancelAppointment,
+    TResult Function(int id)? deleteAppointment,
+    TResult Function(Appointment appointment)? updateAppointment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$AppointmentEvent {
     required TResult Function(_LoadAppointments value) loadAppointments,
     required TResult Function(_BookNewAppointment value) bookAppointment,
     required TResult Function(_CancelAppointment value) cancelAppointment,
+    required TResult Function(_DeleteAppointment value) deleteAppointment,
+    required TResult Function(_UpdateAppointment value) updateAppointment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$AppointmentEvent {
     TResult? Function(_LoadAppointments value)? loadAppointments,
     TResult? Function(_BookNewAppointment value)? bookAppointment,
     TResult? Function(_CancelAppointment value)? cancelAppointment,
+    TResult? Function(_DeleteAppointment value)? deleteAppointment,
+    TResult? Function(_UpdateAppointment value)? updateAppointment,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$AppointmentEvent {
     TResult Function(_LoadAppointments value)? loadAppointments,
     TResult Function(_BookNewAppointment value)? bookAppointment,
     TResult Function(_CancelAppointment value)? cancelAppointment,
+    TResult Function(_DeleteAppointment value)? deleteAppointment,
+    TResult Function(_UpdateAppointment value)? updateAppointment,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +133,8 @@ class _$LoadAppointmentsImpl implements _LoadAppointments {
     required TResult Function() loadAppointments,
     required TResult Function(Appointment appointment) bookAppointment,
     required TResult Function(int id) cancelAppointment,
+    required TResult Function(int id) deleteAppointment,
+    required TResult Function(Appointment appointment) updateAppointment,
   }) {
     return loadAppointments();
   }
@@ -131,6 +145,8 @@ class _$LoadAppointmentsImpl implements _LoadAppointments {
     TResult? Function()? loadAppointments,
     TResult? Function(Appointment appointment)? bookAppointment,
     TResult? Function(int id)? cancelAppointment,
+    TResult? Function(int id)? deleteAppointment,
+    TResult? Function(Appointment appointment)? updateAppointment,
   }) {
     return loadAppointments?.call();
   }
@@ -141,6 +157,8 @@ class _$LoadAppointmentsImpl implements _LoadAppointments {
     TResult Function()? loadAppointments,
     TResult Function(Appointment appointment)? bookAppointment,
     TResult Function(int id)? cancelAppointment,
+    TResult Function(int id)? deleteAppointment,
+    TResult Function(Appointment appointment)? updateAppointment,
     required TResult orElse(),
   }) {
     if (loadAppointments != null) {
@@ -155,6 +173,8 @@ class _$LoadAppointmentsImpl implements _LoadAppointments {
     required TResult Function(_LoadAppointments value) loadAppointments,
     required TResult Function(_BookNewAppointment value) bookAppointment,
     required TResult Function(_CancelAppointment value) cancelAppointment,
+    required TResult Function(_DeleteAppointment value) deleteAppointment,
+    required TResult Function(_UpdateAppointment value) updateAppointment,
   }) {
     return loadAppointments(this);
   }
@@ -165,6 +185,8 @@ class _$LoadAppointmentsImpl implements _LoadAppointments {
     TResult? Function(_LoadAppointments value)? loadAppointments,
     TResult? Function(_BookNewAppointment value)? bookAppointment,
     TResult? Function(_CancelAppointment value)? cancelAppointment,
+    TResult? Function(_DeleteAppointment value)? deleteAppointment,
+    TResult? Function(_UpdateAppointment value)? updateAppointment,
   }) {
     return loadAppointments?.call(this);
   }
@@ -175,6 +197,8 @@ class _$LoadAppointmentsImpl implements _LoadAppointments {
     TResult Function(_LoadAppointments value)? loadAppointments,
     TResult Function(_BookNewAppointment value)? bookAppointment,
     TResult Function(_CancelAppointment value)? cancelAppointment,
+    TResult Function(_DeleteAppointment value)? deleteAppointment,
+    TResult Function(_UpdateAppointment value)? updateAppointment,
     required TResult orElse(),
   }) {
     if (loadAppointments != null) {
@@ -257,6 +281,8 @@ class _$BookNewAppointmentImpl implements _BookNewAppointment {
     required TResult Function() loadAppointments,
     required TResult Function(Appointment appointment) bookAppointment,
     required TResult Function(int id) cancelAppointment,
+    required TResult Function(int id) deleteAppointment,
+    required TResult Function(Appointment appointment) updateAppointment,
   }) {
     return bookAppointment(appointment);
   }
@@ -267,6 +293,8 @@ class _$BookNewAppointmentImpl implements _BookNewAppointment {
     TResult? Function()? loadAppointments,
     TResult? Function(Appointment appointment)? bookAppointment,
     TResult? Function(int id)? cancelAppointment,
+    TResult? Function(int id)? deleteAppointment,
+    TResult? Function(Appointment appointment)? updateAppointment,
   }) {
     return bookAppointment?.call(appointment);
   }
@@ -277,6 +305,8 @@ class _$BookNewAppointmentImpl implements _BookNewAppointment {
     TResult Function()? loadAppointments,
     TResult Function(Appointment appointment)? bookAppointment,
     TResult Function(int id)? cancelAppointment,
+    TResult Function(int id)? deleteAppointment,
+    TResult Function(Appointment appointment)? updateAppointment,
     required TResult orElse(),
   }) {
     if (bookAppointment != null) {
@@ -291,6 +321,8 @@ class _$BookNewAppointmentImpl implements _BookNewAppointment {
     required TResult Function(_LoadAppointments value) loadAppointments,
     required TResult Function(_BookNewAppointment value) bookAppointment,
     required TResult Function(_CancelAppointment value) cancelAppointment,
+    required TResult Function(_DeleteAppointment value) deleteAppointment,
+    required TResult Function(_UpdateAppointment value) updateAppointment,
   }) {
     return bookAppointment(this);
   }
@@ -301,6 +333,8 @@ class _$BookNewAppointmentImpl implements _BookNewAppointment {
     TResult? Function(_LoadAppointments value)? loadAppointments,
     TResult? Function(_BookNewAppointment value)? bookAppointment,
     TResult? Function(_CancelAppointment value)? cancelAppointment,
+    TResult? Function(_DeleteAppointment value)? deleteAppointment,
+    TResult? Function(_UpdateAppointment value)? updateAppointment,
   }) {
     return bookAppointment?.call(this);
   }
@@ -311,6 +345,8 @@ class _$BookNewAppointmentImpl implements _BookNewAppointment {
     TResult Function(_LoadAppointments value)? loadAppointments,
     TResult Function(_BookNewAppointment value)? bookAppointment,
     TResult Function(_CancelAppointment value)? cancelAppointment,
+    TResult Function(_DeleteAppointment value)? deleteAppointment,
+    TResult Function(_UpdateAppointment value)? updateAppointment,
     required TResult orElse(),
   }) {
     if (bookAppointment != null) {
@@ -398,6 +434,8 @@ class _$CancelAppointmentImpl implements _CancelAppointment {
     required TResult Function() loadAppointments,
     required TResult Function(Appointment appointment) bookAppointment,
     required TResult Function(int id) cancelAppointment,
+    required TResult Function(int id) deleteAppointment,
+    required TResult Function(Appointment appointment) updateAppointment,
   }) {
     return cancelAppointment(id);
   }
@@ -408,6 +446,8 @@ class _$CancelAppointmentImpl implements _CancelAppointment {
     TResult? Function()? loadAppointments,
     TResult? Function(Appointment appointment)? bookAppointment,
     TResult? Function(int id)? cancelAppointment,
+    TResult? Function(int id)? deleteAppointment,
+    TResult? Function(Appointment appointment)? updateAppointment,
   }) {
     return cancelAppointment?.call(id);
   }
@@ -418,6 +458,8 @@ class _$CancelAppointmentImpl implements _CancelAppointment {
     TResult Function()? loadAppointments,
     TResult Function(Appointment appointment)? bookAppointment,
     TResult Function(int id)? cancelAppointment,
+    TResult Function(int id)? deleteAppointment,
+    TResult Function(Appointment appointment)? updateAppointment,
     required TResult orElse(),
   }) {
     if (cancelAppointment != null) {
@@ -432,6 +474,8 @@ class _$CancelAppointmentImpl implements _CancelAppointment {
     required TResult Function(_LoadAppointments value) loadAppointments,
     required TResult Function(_BookNewAppointment value) bookAppointment,
     required TResult Function(_CancelAppointment value) cancelAppointment,
+    required TResult Function(_DeleteAppointment value) deleteAppointment,
+    required TResult Function(_UpdateAppointment value) updateAppointment,
   }) {
     return cancelAppointment(this);
   }
@@ -442,6 +486,8 @@ class _$CancelAppointmentImpl implements _CancelAppointment {
     TResult? Function(_LoadAppointments value)? loadAppointments,
     TResult? Function(_BookNewAppointment value)? bookAppointment,
     TResult? Function(_CancelAppointment value)? cancelAppointment,
+    TResult? Function(_DeleteAppointment value)? deleteAppointment,
+    TResult? Function(_UpdateAppointment value)? updateAppointment,
   }) {
     return cancelAppointment?.call(this);
   }
@@ -452,6 +498,8 @@ class _$CancelAppointmentImpl implements _CancelAppointment {
     TResult Function(_LoadAppointments value)? loadAppointments,
     TResult Function(_BookNewAppointment value)? bookAppointment,
     TResult Function(_CancelAppointment value)? cancelAppointment,
+    TResult Function(_DeleteAppointment value)? deleteAppointment,
+    TResult Function(_UpdateAppointment value)? updateAppointment,
     required TResult orElse(),
   }) {
     if (cancelAppointment != null) {
@@ -467,6 +515,312 @@ abstract class _CancelAppointment implements AppointmentEvent {
   int get id;
   @JsonKey(ignore: true)
   _$$CancelAppointmentImplCopyWith<_$CancelAppointmentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteAppointmentImplCopyWith<$Res> {
+  factory _$$DeleteAppointmentImplCopyWith(_$DeleteAppointmentImpl value,
+          $Res Function(_$DeleteAppointmentImpl) then) =
+      __$$DeleteAppointmentImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$DeleteAppointmentImplCopyWithImpl<$Res>
+    extends _$AppointmentEventCopyWithImpl<$Res, _$DeleteAppointmentImpl>
+    implements _$$DeleteAppointmentImplCopyWith<$Res> {
+  __$$DeleteAppointmentImplCopyWithImpl(_$DeleteAppointmentImpl _value,
+      $Res Function(_$DeleteAppointmentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteAppointmentImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DeleteAppointmentImpl implements _DeleteAppointment {
+  const _$DeleteAppointmentImpl(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'AppointmentEvent.deleteAppointment(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteAppointmentImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteAppointmentImplCopyWith<_$DeleteAppointmentImpl> get copyWith =>
+      __$$DeleteAppointmentImplCopyWithImpl<_$DeleteAppointmentImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadAppointments,
+    required TResult Function(Appointment appointment) bookAppointment,
+    required TResult Function(int id) cancelAppointment,
+    required TResult Function(int id) deleteAppointment,
+    required TResult Function(Appointment appointment) updateAppointment,
+  }) {
+    return deleteAppointment(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadAppointments,
+    TResult? Function(Appointment appointment)? bookAppointment,
+    TResult? Function(int id)? cancelAppointment,
+    TResult? Function(int id)? deleteAppointment,
+    TResult? Function(Appointment appointment)? updateAppointment,
+  }) {
+    return deleteAppointment?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadAppointments,
+    TResult Function(Appointment appointment)? bookAppointment,
+    TResult Function(int id)? cancelAppointment,
+    TResult Function(int id)? deleteAppointment,
+    TResult Function(Appointment appointment)? updateAppointment,
+    required TResult orElse(),
+  }) {
+    if (deleteAppointment != null) {
+      return deleteAppointment(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadAppointments value) loadAppointments,
+    required TResult Function(_BookNewAppointment value) bookAppointment,
+    required TResult Function(_CancelAppointment value) cancelAppointment,
+    required TResult Function(_DeleteAppointment value) deleteAppointment,
+    required TResult Function(_UpdateAppointment value) updateAppointment,
+  }) {
+    return deleteAppointment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadAppointments value)? loadAppointments,
+    TResult? Function(_BookNewAppointment value)? bookAppointment,
+    TResult? Function(_CancelAppointment value)? cancelAppointment,
+    TResult? Function(_DeleteAppointment value)? deleteAppointment,
+    TResult? Function(_UpdateAppointment value)? updateAppointment,
+  }) {
+    return deleteAppointment?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadAppointments value)? loadAppointments,
+    TResult Function(_BookNewAppointment value)? bookAppointment,
+    TResult Function(_CancelAppointment value)? cancelAppointment,
+    TResult Function(_DeleteAppointment value)? deleteAppointment,
+    TResult Function(_UpdateAppointment value)? updateAppointment,
+    required TResult orElse(),
+  }) {
+    if (deleteAppointment != null) {
+      return deleteAppointment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteAppointment implements AppointmentEvent {
+  const factory _DeleteAppointment(final int id) = _$DeleteAppointmentImpl;
+
+  int get id;
+  @JsonKey(ignore: true)
+  _$$DeleteAppointmentImplCopyWith<_$DeleteAppointmentImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateAppointmentImplCopyWith<$Res> {
+  factory _$$UpdateAppointmentImplCopyWith(_$UpdateAppointmentImpl value,
+          $Res Function(_$UpdateAppointmentImpl) then) =
+      __$$UpdateAppointmentImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Appointment appointment});
+}
+
+/// @nodoc
+class __$$UpdateAppointmentImplCopyWithImpl<$Res>
+    extends _$AppointmentEventCopyWithImpl<$Res, _$UpdateAppointmentImpl>
+    implements _$$UpdateAppointmentImplCopyWith<$Res> {
+  __$$UpdateAppointmentImplCopyWithImpl(_$UpdateAppointmentImpl _value,
+      $Res Function(_$UpdateAppointmentImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? appointment = null,
+  }) {
+    return _then(_$UpdateAppointmentImpl(
+      null == appointment
+          ? _value.appointment
+          : appointment // ignore: cast_nullable_to_non_nullable
+              as Appointment,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$UpdateAppointmentImpl implements _UpdateAppointment {
+  const _$UpdateAppointmentImpl(this.appointment);
+
+  @override
+  final Appointment appointment;
+
+  @override
+  String toString() {
+    return 'AppointmentEvent.updateAppointment(appointment: $appointment)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateAppointmentImpl &&
+            (identical(other.appointment, appointment) ||
+                other.appointment == appointment));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appointment);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateAppointmentImplCopyWith<_$UpdateAppointmentImpl> get copyWith =>
+      __$$UpdateAppointmentImplCopyWithImpl<_$UpdateAppointmentImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadAppointments,
+    required TResult Function(Appointment appointment) bookAppointment,
+    required TResult Function(int id) cancelAppointment,
+    required TResult Function(int id) deleteAppointment,
+    required TResult Function(Appointment appointment) updateAppointment,
+  }) {
+    return updateAppointment(appointment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadAppointments,
+    TResult? Function(Appointment appointment)? bookAppointment,
+    TResult? Function(int id)? cancelAppointment,
+    TResult? Function(int id)? deleteAppointment,
+    TResult? Function(Appointment appointment)? updateAppointment,
+  }) {
+    return updateAppointment?.call(appointment);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadAppointments,
+    TResult Function(Appointment appointment)? bookAppointment,
+    TResult Function(int id)? cancelAppointment,
+    TResult Function(int id)? deleteAppointment,
+    TResult Function(Appointment appointment)? updateAppointment,
+    required TResult orElse(),
+  }) {
+    if (updateAppointment != null) {
+      return updateAppointment(appointment);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadAppointments value) loadAppointments,
+    required TResult Function(_BookNewAppointment value) bookAppointment,
+    required TResult Function(_CancelAppointment value) cancelAppointment,
+    required TResult Function(_DeleteAppointment value) deleteAppointment,
+    required TResult Function(_UpdateAppointment value) updateAppointment,
+  }) {
+    return updateAppointment(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadAppointments value)? loadAppointments,
+    TResult? Function(_BookNewAppointment value)? bookAppointment,
+    TResult? Function(_CancelAppointment value)? cancelAppointment,
+    TResult? Function(_DeleteAppointment value)? deleteAppointment,
+    TResult? Function(_UpdateAppointment value)? updateAppointment,
+  }) {
+    return updateAppointment?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadAppointments value)? loadAppointments,
+    TResult Function(_BookNewAppointment value)? bookAppointment,
+    TResult Function(_CancelAppointment value)? cancelAppointment,
+    TResult Function(_DeleteAppointment value)? deleteAppointment,
+    TResult Function(_UpdateAppointment value)? updateAppointment,
+    required TResult orElse(),
+  }) {
+    if (updateAppointment != null) {
+      return updateAppointment(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateAppointment implements AppointmentEvent {
+  const factory _UpdateAppointment(final Appointment appointment) =
+      _$UpdateAppointmentImpl;
+
+  Appointment get appointment;
+  @JsonKey(ignore: true)
+  _$$UpdateAppointmentImplCopyWith<_$UpdateAppointmentImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

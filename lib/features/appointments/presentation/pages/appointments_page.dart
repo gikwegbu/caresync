@@ -39,17 +39,19 @@ class _AppointmentsView extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.background,
         appBar: AppBar(
+          backgroundColor: AppColors.nhsBlue,
+          iconTheme: const IconThemeData(color: Colors.white),
           title: Text(
             'Appointments',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: Colors.white,
             ),
           ),
           bottom: TabBar(
-            labelColor: AppColors.nhsBlue,
-            unselectedLabelColor: AppColors.textSecondary,
-            indicatorColor: AppColors.nhsBlue,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white.withOpacity(0.7),
+            indicatorColor: Colors.white,
             labelStyle: GoogleFonts.inter(fontWeight: FontWeight.w600),
             tabs: const [
               Tab(text: 'Upcoming'),

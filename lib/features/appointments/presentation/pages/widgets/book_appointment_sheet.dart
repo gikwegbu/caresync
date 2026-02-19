@@ -8,7 +8,9 @@ import '../../../../../../core/theme/app_colors.dart';
 import '../../bloc/appointment_bloc.dart';
 
 class BookAppointmentSheet extends StatefulWidget {
-  const BookAppointmentSheet({super.key});
+  final Appointment? appointment;
+
+  const BookAppointmentSheet({super.key, this.appointment});
 
   @override
   State<BookAppointmentSheet> createState() => _BookAppointmentSheetState();
@@ -16,13 +18,29 @@ class BookAppointmentSheet extends StatefulWidget {
 
 class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
   // Form State
-  String _selectedType = 'GP';
-  DateTime _selectedDate = DateTime.now().add(const Duration(days: 1));
-  String _selectedTime = '09:00';
-  final TextEditingController _notesController = TextEditingController();
+  late String _selectedType;
+  late DateTime _selectedDate;
+  late String _selectedTime;
+  late TextEditingController _notesController;
 
   // Steps: 0=Type, 1=Date, 2=Time/Notes, 3=Confirm
   int _currentStep = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.appointment != null) {
+      _selectedType = widget.appointment!.specialty;
+      _selectedDate = widget.appointment!.dateTime;
+      _selectedTime = DateFormat('HH:mm').format(widget.appointment!.dateTime);
+      _notesController = TextEditingController(text: widget.appointment!.notes);
+    } else {
+      _selectedType = 'GP';
+      _selectedDate = DateTime.now().add(const Duration(days: 1));
+      _selectedTime = '09:00';
+      _notesController = TextEditingController();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +83,9 @@ class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
 
           Expanded(
             child: Text(
-              'Book Appointment',
+              widget.appointment != null
+                  ? 'Edit Appointment'
+                  : 'Book Appointment',
               textAlign: TextAlign.center,
               style: GoogleFonts.poppins(
                 fontSize: 18.sp,
@@ -187,6 +207,8 @@ class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
         TextField(
           controller: _notesController,
           maxLines: 3,
+          textCapitalization: TextCapitalization.sentences,
+          keyboardType: TextInputType.multiline,
           decoration: const InputDecoration(
             hintText: 'Describe your symptoms or reason for visit...',
             border: OutlineInputBorder(),
@@ -246,7 +268,11 @@ class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
             backgroundColor: AppColors.nhsBlue,
             foregroundColor: Colors.white,
           ),
-          child: Text(_currentStep == 3 ? 'Confirm & Book' : 'Continue'),
+          child: Text(_currentStep == 3
+              ? (widget.appointment != null
+                  ? 'Confirm Update'
+                  : 'Confirm & Book')
+              : 'Continue'),
         ),
       ),
     );
@@ -264,6 +290,7 @@ class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
     );
 
     final appointment = Appointment(
+      id: widget.appointment?.id,
       doctorName: 'Dr. Smith', // Placeholder logic
       specialty: _selectedType,
       dateTime: dateTime,
@@ -272,12 +299,21 @@ class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
       notes: _notesController.text,
     );
 
-    context
-        .read<AppointmentBloc>()
-        .add(AppointmentEvent.bookAppointment(appointment));
+    if (widget.appointment != null) {
+      context
+          .read<AppointmentBloc>()
+          .add(AppointmentEvent.updateAppointment(appointment));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Appointment Updated Successfully')),
+      );
+    } else {
+      context
+          .read<AppointmentBloc>()
+          .add(AppointmentEvent.bookAppointment(appointment));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Appointment Booked Successfully')),
+      );
+    }
     Navigator.pop(context);
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Appointment Booked Successfully')),
-    );
   }
 }

@@ -20,6 +20,24 @@ class HealthMetric extends Equatable {
   @override
   List<Object?> get props => [id, type, value, unit, recordedAt, notes];
 
+  HealthMetric copyWith({
+    int? id,
+    String? type,
+    double? value,
+    String? unit,
+    DateTime? recordedAt,
+    String? notes,
+  }) {
+    return HealthMetric(
+      id: id ?? this.id,
+      type: type ?? this.type,
+      value: value ?? this.value,
+      unit: unit ?? this.unit,
+      recordedAt: recordedAt ?? this.recordedAt,
+      notes: notes ?? this.notes,
+    );
+  }
+
   // Helper to format display value
   String get displayValue {
     if (type == 'blood_pressure') {

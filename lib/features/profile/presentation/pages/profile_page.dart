@@ -40,7 +40,7 @@ class _ProfileView extends StatelessWidget {
           'My Profile',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
-            color: AppColors.textPrimary,
+            color: AppColors.white,
           ),
         ),
         actions: [

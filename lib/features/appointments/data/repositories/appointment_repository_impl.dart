@@ -18,6 +18,13 @@ class AppointmentRepositoryImpl implements AppointmentRepository {
   }
 
   @override
+  Stream<List<Appointment>> getAppointmentsStream() {
+    return _dataSource.getAppointmentsStream().map((models) {
+      return models.map((e) => e.toEntity()).toList();
+    });
+  }
+
+  @override
   Future<void> bookAppointment(Appointment appointment) async {
     final model = AppointmentModel()
       ..doctorName = appointment.doctorName
@@ -52,5 +59,17 @@ class AppointmentRepositoryImpl implements AppointmentRepository {
       appointment.status = 'upcoming';
       await _dataSource.cacheAppointment(appointment);
     }
+  }
+
+  @override
+  Future<void> deleteAppointment(int id) async {
+    await _dataSource.deleteAppointment(id);
+  }
+
+  @override
+  Future<void> updateAppointment(Appointment appointment) async {
+    // Reuse bookAppointment logic since it handles ID check for update vs create
+    // But explicitly mapping here ensures we are using the passed appointment data
+    await bookAppointment(appointment);
   }
 }

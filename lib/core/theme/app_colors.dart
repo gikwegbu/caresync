@@ -16,6 +16,7 @@ class AppColors {
   static const Color textSecondary = Color(0xFF4C6272);
   static const Color success = Color(0xFF417505);
   static const Color warning = Color(0xFFFFB81C);
+  static const Color white = Colors.white;
   
   // Dark Mode variations
   static const Color darkBackground = Color(0xFF121212);

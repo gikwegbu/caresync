@@ -28,6 +28,11 @@ class HealthMetricRepositoryImpl implements HealthMetricRepository {
   }
 
   @override
+  Future<void> updateMetric(HealthMetric metric) async {
+    await _dataSource.cacheMetric(metric.toModel());
+  }
+
+  @override
   Future<void> deleteMetric(int id) async {
     await _dataSource.deleteMetric(id);
   }

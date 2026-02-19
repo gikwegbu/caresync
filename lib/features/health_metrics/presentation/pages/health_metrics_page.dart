@@ -40,7 +40,7 @@ class _HealthMetricsView extends StatelessWidget {
           'Health Metrics',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
-            color: AppColors.textPrimary,
+            color: AppColors.white,
           ),
         ),
       ),
@@ -170,6 +170,60 @@ class _MetricCard extends StatelessWidget {
               fontSize: 18.sp,
               color: AppColors.textPrimary,
             ),
+          ),
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'edit') {
+                _showEditSheet(context, metric);
+              } else if (value == 'delete') {
+                _showDeleteDialog(context, metric);
+              }
+            },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'edit',
+                child: Text('Edit'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'delete',
+                child: Text('Delete'),
+              ),
+            ],
+            icon: const Icon(Icons.more_vert),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showEditSheet(BuildContext context, HealthMetric metric) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (_) => LogMetricSheet(metric: metric),
+    );
+  }
+
+  void _showDeleteDialog(BuildContext context, HealthMetric metric) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete Metric'),
+        content: const Text('Are you sure you want to delete this metric?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              context
+                  .read<HealthMetricBloc>()
+                  .add(HealthMetricEvent.deleteMetric(metric.id!));
+              Navigator.pop(context);
+            },
+            child: const Text('Delete', style: TextStyle(color: Colors.red)),
           ),
         ],
       ),

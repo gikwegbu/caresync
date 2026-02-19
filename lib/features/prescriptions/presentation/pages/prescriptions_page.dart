@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../domain/entities/prescription.dart';
 import '../bloc/prescription_bloc.dart';
+import 'prescription_form_page.dart';
 
 class PrescriptionsPage extends StatefulWidget {
   const PrescriptionsPage({super.key});
@@ -38,17 +39,19 @@ class _PrescriptionsView extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.background,
         appBar: AppBar(
+          backgroundColor: AppColors.nhsBlue,
+          iconTheme: const IconThemeData(color: Colors.white),
           title: Text(
             'Prescriptions',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: Colors.white,
             ),
           ),
           bottom: TabBar(
-            labelColor: AppColors.nhsBlue,
-            unselectedLabelColor: AppColors.textSecondary,
-            indicatorColor: AppColors.nhsBlue,
+            labelColor: Colors.white,
+            unselectedLabelColor: Colors.white.withOpacity(0.7),
+            indicatorColor: Colors.white,
             labelStyle: GoogleFonts.inter(fontWeight: FontWeight.w600),
             tabs: const [
               Tab(text: 'Active'),
@@ -64,12 +67,11 @@ class _PrescriptionsView extends StatelessWidget {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // Navigate to Request Prescription or Add new
-            // For now, simple snackbar as this flow wasn't detailed in main prompt except "Request repeat prescription flow"
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                  content:
-                      Text('Request Repeat Prescription feature coming soon')),
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PrescriptionFormPage(),
+              ),
             );
           },
           backgroundColor: AppColors.nhsBlue,
@@ -165,12 +167,14 @@ class _PrescriptionCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                prescription.medicationName,
-                style: GoogleFonts.poppins(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textPrimary,
+              Expanded(
+                child: Text(
+                  prescription.medicationName,
+                  style: GoogleFonts.poppins(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textPrimary,
+                  ),
                 ),
               ),
               if (prescription.status == 'active')
@@ -184,6 +188,44 @@ class _PrescriptionCard extends StatelessWidget {
                   },
                   activeColor: AppColors.nhsBlue,
                 ),
+              PopupMenuButton<String>(
+                icon: Icon(Icons.more_vert, color: AppColors.textSecondary),
+                onSelected: (value) {
+                  if (value == 'edit') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            PrescriptionFormPage(prescription: prescription),
+                      ),
+                    );
+                  } else if (value == 'delete') {
+                    _showDeleteConfirmation(context);
+                  }
+                },
+                itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                  const PopupMenuItem<String>(
+                    value: 'edit',
+                    child: Row(
+                      children: [
+                        Icon(Icons.edit, size: 20),
+                        SizedBox(width: 8),
+                        Text('Edit'),
+                      ],
+                    ),
+                  ),
+                  const PopupMenuItem<String>(
+                    value: 'delete',
+                    child: Row(
+                      children: [
+                        Icon(Icons.delete, size: 20, color: Colors.red),
+                        SizedBox(width: 8),
+                        Text('Delete', style: TextStyle(color: Colors.red)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           SizedBox(height: 4.h),
@@ -212,6 +254,32 @@ class _PrescriptionCard extends StatelessWidget {
               ),
             ),
           ],
+        ],
+      ),
+    );
+  }
+
+  void _showDeleteConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete Prescription'),
+        content:
+            const Text('Are you sure you want to delete this prescription?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              context.read<PrescriptionBloc>().add(
+                    PrescriptionEvent.deletePrescription(prescription.id!),
+                  );
+              Navigator.pop(context);
+            },
+            child: const Text('Delete', style: TextStyle(color: Colors.red)),
+          ),
         ],
       ),
     );

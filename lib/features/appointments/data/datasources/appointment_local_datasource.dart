@@ -7,6 +7,7 @@ abstract class AppointmentLocalDataSource {
   Future<AppointmentModel?> getAppointmentById(int id);
   Future<void> cacheAppointment(AppointmentModel appointment);
   Future<void> deleteAppointment(int id);
+  Stream<List<AppointmentModel>> getAppointmentsStream();
 }
 
 @LazySingleton(as: AppointmentLocalDataSource)
@@ -37,5 +38,13 @@ class IsarAppointmentDataSource implements AppointmentLocalDataSource {
     await _isar.writeTxn(() async {
       await _isar.appointmentModels.delete(id);
     });
+  }
+
+  @override
+  Stream<List<AppointmentModel>> getAppointmentsStream() {
+    return _isar.appointmentModels
+        .where()
+        .sortByDateTimeDesc()
+        .watch(fireImmediately: true);
   }
 }

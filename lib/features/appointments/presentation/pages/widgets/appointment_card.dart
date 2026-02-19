@@ -4,6 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../../../../../core/theme/app_colors.dart';
+import '../../bloc/appointment_bloc.dart';
+import 'book_appointment_sheet.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppointmentCard extends StatelessWidget {
   final Appointment appointment;
@@ -62,6 +65,46 @@ class AppointmentCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: AppColors.error,
                   ),
+                )
+              else
+                PopupMenuButton<String>(
+                  icon: Icon(Icons.more_vert, color: AppColors.textSecondary),
+                  onSelected: (value) {
+                    if (value == 'edit') {
+                      showModalBottomSheet(
+                        context: context,
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                        builder: (context) =>
+                            BookAppointmentSheet(appointment: appointment),
+                      );
+                    } else if (value == 'delete') {
+                      _showDeleteConfirmation(context);
+                    }
+                  },
+                  itemBuilder: (BuildContext context) =>
+                      <PopupMenuEntry<String>>[
+                    const PopupMenuItem<String>(
+                      value: 'edit',
+                      child: Row(
+                        children: [
+                          Icon(Icons.edit, size: 20),
+                          SizedBox(width: 8),
+                          Text('Edit'),
+                        ],
+                      ),
+                    ),
+                    const PopupMenuItem<String>(
+                      value: 'delete',
+                      child: Row(
+                        children: [
+                          Icon(Icons.delete, size: 20, color: Colors.red),
+                          SizedBox(width: 8),
+                          Text('Delete', style: TextStyle(color: Colors.red)),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
             ],
           ),
@@ -104,6 +147,32 @@ class AppointmentCard extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showDeleteConfirmation(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Delete Appointment'),
+        content:
+            const Text('Are you sure you want to delete this appointment?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              context.read<AppointmentBloc>().add(
+                    AppointmentEvent.deleteAppointment(appointment.id!),
+                  );
+              Navigator.pop(context);
+            },
+            child: const Text('Delete', style: TextStyle(color: Colors.red)),
           ),
         ],
       ),
