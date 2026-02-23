@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/theme_cubit.dart';
 import '../../domain/entities/user_profile.dart';
 import '../bloc/profile_bloc.dart';
 import 'widgets/edit_profile_sheet.dart'; // Will create this
@@ -44,6 +45,20 @@ class _ProfileView extends StatelessWidget {
           ),
         ),
         actions: [
+          IconButton(
+            icon: BlocBuilder<ThemeCubit, ThemeMode>(
+              builder: (context, themeMode) {
+                return Icon(
+                  themeMode == ThemeMode.dark
+                      ? Icons.light_mode
+                      : Icons.dark_mode,
+                );
+              },
+            ),
+            onPressed: () {
+              context.read<ThemeCubit>().toggleTheme();
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.edit),
             onPressed: () {

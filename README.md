@@ -1,114 +1,77 @@
 # CareSync
 
-**CareSync** is a comprehensive, UK NHS-inspired personal health and appointment tracker application built with Flutter. It is designed to help users manage their healthcare journey with ease, offering features for tracking appointments, prescriptions, health metrics, and more, all wrapped in a modern, accessible, and polished user interface.
+A modern, comprehensive, NHS-inspired personal health and appointment tracker mobile application built with Flutter. CareSync is designed to provide individuals with an accessible, robust tool to manage their health data completely offline, respecting patient privacy by storing all data securely on the device.
 
-## 📱 Features
+## Features
 
-CareSync provides a robust set of features to keep you on top of your health:
+- **Personalized Dashboard:** A comprehensive view of upcoming appointments, active prescriptions, and recent health metrics.
+- **Appointments Management:** Seamlessly book, track, update, and cancel GP appointments.
+- **Repeat Prescriptions:** Monitor active medications and track refills with clear visual indicators.
+- **Health Metrics Tracking:** Log and visualize critical health data like Blood Pressure, Heart Rate, Weight, and Blood Sugar over time.
+- **User Profile:** Manage personal details and NHS number in a unified setting.
+- **Intelligent Notifications:** Stay on top of appointments and medication schedules with local push notifications.
 
-*   **Dashboard**: A centralized hub showing upcoming appointments, active prescriptions, and recent health activity at a glance.
-*   **Appointments**: Book, view, and manage your GP and hospital appointments. Keep track of dates, times, and locations.
-*   **Prescriptions**: Manage your medication schedule, track repeat prescriptions, and set reminders for taking your medicine.
-*   **Health Metrics**: Log and visualize vital health data such as Blood Pressure, Heart Rate, Weight, and more with interactive charts.
-*   **Notifications**: Stay informed with timely reminders for appointments and medication.
-*   **Profile Management**: Manage your personal details, NHS number, and app preferences.
-*   **Secure & Offline-First**: Built with a local-first approach using Isar database to ensure your data is always accessible, even without an internet connection.
+## Architecture & Tech Stack
 
-## 🛠 Tech Stack & Architecture
+CareSync employs a robust **Clean Architecture** combined with **Flutter BLoC** for state management, ensuring a highly testable, scalable, and maintainable codebase.
 
-This project is built using **Flutter** and follows **Clean Architecture** principles to ensure scalability, testability, and maintainability.
+- **Framework:** Flutter (SDK >=3.1.0)
+- **State Management:** `flutter_bloc`
+- **Dependency Injection:** `get_it`, `injectable`
+- **Local Database:** `isar`, `isar_flutter_libs`
+- **Navigation:** `go_router`
+- **Assets & UI:** Custom NHS blue color palette, `flutter_screenutil` for responsiveness, `google_fonts` for typography.
 
-*   **Framework**: [Flutter](https://flutter.dev/)
-*   **Language**: [Dart](https://dart.dev/)
-*   **State Management**: [Flutter Bloc](https://pub.dev/packages/flutter_bloc) (Cubit)
-*   **Dependency Injection**: [GetIt](https://pub.dev/packages/get_it) & [Injectable](https://pub.dev/packages/injectable)
-*   **Local Database**: [Isar](https://isar.dev/)
-*   **Navigation**: [GoRouter](https://pub.dev/packages/go_router)
-*   **Code Generation**: [Freezed](https://pub.dev/packages/freezed) & [build_runner](https://pub.dev/packages/build_runner)
-*   **UI/UX**: 
-    *   [Flutter ScreenUtil](https://pub.dev/packages/flutter_screenutil) for responsive design.
-    *   [Google Fonts](https://pub.dev/packages/google_fonts) for typography.
-    *   [Shimmer](https://pub.dev/packages/shimmer) for loading states.
-    *   [FL Chart](https://pub.dev/packages/fl_chart) for data visualization.
+## Previews
 
-## 🚀 Getting Started
+<div style="display: flex; flex-direction: row; gap: 10px;">
+  <img src="storeFile/appstore/screenshot_dashboard_1771806808942.png" alt="Dashboard" width="200" />
+  <img src="storeFile/appstore/screenshot_appointments_1771806824359.png" alt="Appointments" width="200" />
+  <img src="storeFile/appstore/screenshot_prescriptions_1771806844333.png" alt="Prescriptions" width="200" />
+</div>
 
-Follow these instructions to get a copy of the project up and running on your local machine.
+> Note: High-fidelity screenshots for store deployment are available in the `storeFile` directory at the root of this project.
 
-### Prerequisites
+## How to Reproduce & Run Locally
 
-*   [Flutter SDK](https://docs.flutter.dev/get-started/install) (Version >=3.1.0 <4.0.0)
-*   Dart SDK
-*   Android Studio / VS Code / Xcode (for iOS)
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/georgeikwegbu/NHS_health_tracker.git
+   cd NHS_health_tracker
+   ```
 
-### Installation
+2. **Install Dependencies:**
+   Ensure you have Flutter installed. Then run:
+   ```bash
+   flutter pub get
+   ```
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/georgeikwegbu/NHS_health_tracker.git
-    cd NHS_health_tracker
-    ```
+3. **Run Code Generation:**
+   CareSync uses `freezed`, `json_serializable`, `injectable`, and `isar` generation tools.
+   ```bash
+   dart run build_runner build --delete-conflicting-outputs
+   ```
 
-2.  **Install dependencies**
-    ```bash
-    flutter pub get
-    ```
+4. **Run the App:**
+   ```bash
+   flutter run
+   ```
 
-3.  **Run Code Generation**
-    This project uses `build_runner` for generating model serialization, database schemas, and dependency injection code.
-    ```bash
-    dart run build_runner build --delete-conflicting-outputs
-    ```
+## Testing
 
-4.  **Run the App**
-    Connect your device or start an emulator/simulator.
-    ```bash
-    flutter run
-    ```
-
-## 📂 Project Structure
-
-The project follows a feature-based directory structure:
-
-```
-lib/
-├── core/           # Core utilities, theme, configs, and shared widgets
-├── features/       # Feature-specific code (Clean Architecture)
-│   ├── appointments/
-│   ├── dashboard/
-│   ├── health_metrics/
-│   ├── intro/      # Onboarding & Splash
-│   ├── prescriptions/
-│   ├── profile/
-│   └── ...
-├── main.dart       # Entry point
-└── injection.dart  # DI setup
+CareSync maintains full test coverage with unit and widget tests for core components.
+```bash
+flutter test
 ```
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```text
-MIT License
+## Author
 
-Copyright (c) 2024 George Ikwegbu
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+**George Ikwegbu**
+- **Website:** [gikwegbu.netlify.app](https://gikwegbu.netlify.app/)
+- **LinkedIn:** [linkedin.com/in/georgeikwegbu](https://www.linkedin.com/in/georgeikwegbu)
+- **Twitter / X:** [@gikwegbu](https://twitter.com/gikwegbu)
+- **GitHub:** [@georgeikwegbu](https://github.com/georgeikwegbu)

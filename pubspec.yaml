@@ -48,7 +48,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # Utils
-  flutter_local_notifications: ^16.1.0
+  flutter_local_notifications: ^17.1.2
   permission_handler: ^11.0.1
   intl: ^0.18.1
   smooth_page_indicator: ^2.0.1
@@ -58,12 +58,22 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^3.0.0
   build_runner: ^2.4.8
+  mocktail: ^1.0.3
   
   # Code Generation
   freezed: ^2.4.7
   json_serializable: ^6.7.1
   isar_generator: ^3.1.0
   injectable_generator: ^2.4.1
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.png"
+  min_sdk_android: 21
+  remove_alpha_ios: true
+
 
 flutter:
   uses-material-design: true
