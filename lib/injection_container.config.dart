@@ -13,9 +13,9 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:isar/isar.dart' as _i4;
 
-import 'core/database/database_module.dart' as _i47;
+import 'core/database/database_module.dart' as _i48;
 import 'core/network/api_client.dart' as _i11;
-import 'core/network/network_module.dart' as _i46;
+import 'core/network/network_module.dart' as _i47;
 import 'features/appointments/data/datasources/appointment_local_datasource.dart'
     as _i17;
 import 'features/appointments/data/repositories/appointment_repository_impl.dart'
@@ -24,30 +24,31 @@ import 'features/appointments/domain/repositories/appointment_repository.dart'
     as _i18;
 import 'features/appointments/domain/usecases/book_appointment.dart' as _i20;
 import 'features/appointments/domain/usecases/cancel_appointment.dart' as _i21;
-import 'features/appointments/domain/usecases/delete_appointment.dart' as _i22;
-import 'features/appointments/domain/usecases/get_appointments.dart' as _i24;
-import 'features/appointments/domain/usecases/update_appointment.dart' as _i35;
-import 'features/appointments/domain/usecases/watch_appointments.dart' as _i37;
-import 'features/appointments/presentation/bloc/appointment_bloc.dart' as _i38;
-import 'features/dashboard/presentation/bloc/dashboard_cubit.dart' as _i45;
+import 'features/appointments/domain/usecases/delete_appointment.dart' as _i23;
+import 'features/appointments/domain/usecases/get_appointments.dart' as _i25;
+import 'features/appointments/domain/usecases/update_appointment.dart' as _i36;
+import 'features/appointments/domain/usecases/watch_appointments.dart' as _i38;
+import 'features/appointments/presentation/bloc/appointment_bloc.dart' as _i39;
+import 'features/chat/domain/repositories/chat_repository.dart' as _i22;
+import 'features/dashboard/presentation/bloc/dashboard_cubit.dart' as _i46;
 import 'features/health_metrics/data/datasources/health_metric_local_datasource.dart'
-    as _i27;
-import 'features/health_metrics/data/repositories/health_metric_repository_impl.dart'
-    as _i29;
-import 'features/health_metrics/domain/repositories/health_metric_repository.dart'
     as _i28;
-import 'features/health_metrics/domain/usecases/delete_metric.dart' as _i41;
+import 'features/health_metrics/data/repositories/health_metric_repository_impl.dart'
+    as _i30;
+import 'features/health_metrics/domain/repositories/health_metric_repository.dart'
+    as _i29;
+import 'features/health_metrics/domain/usecases/delete_metric.dart' as _i42;
 import 'features/health_metrics/domain/usecases/get_health_metrics.dart'
-    as _i42;
-import 'features/health_metrics/domain/usecases/log_health_metric.dart' as _i32;
-import 'features/health_metrics/domain/usecases/update_metric.dart' as _i36;
-import 'features/health_metrics/presentation/bloc/health_metric_bloc.dart'
     as _i43;
-import 'features/intro/data/repositories/intro_repository_impl.dart' as _i31;
-import 'features/intro/domain/repositories/intro_repository.dart' as _i30;
-import 'features/intro/domain/usecases/check_onboarding_status.dart' as _i39;
-import 'features/intro/domain/usecases/complete_onboarding.dart' as _i40;
-import 'features/intro/presentation/bloc/intro_bloc.dart' as _i44;
+import 'features/health_metrics/domain/usecases/log_health_metric.dart' as _i33;
+import 'features/health_metrics/domain/usecases/update_metric.dart' as _i37;
+import 'features/health_metrics/presentation/bloc/health_metric_bloc.dart'
+    as _i44;
+import 'features/intro/data/repositories/intro_repository_impl.dart' as _i32;
+import 'features/intro/domain/repositories/intro_repository.dart' as _i31;
+import 'features/intro/domain/usecases/check_onboarding_status.dart' as _i40;
+import 'features/intro/domain/usecases/complete_onboarding.dart' as _i41;
+import 'features/intro/presentation/bloc/intro_bloc.dart' as _i45;
 import 'features/prescriptions/data/datasources/prescription_local_datasource.dart'
     as _i5;
 import 'features/prescriptions/data/repositories/prescription_repository_impl.dart'
@@ -56,8 +57,8 @@ import 'features/prescriptions/domain/repositories/prescription_repository.dart'
     as _i6;
 import 'features/prescriptions/domain/usecases/add_prescription.dart' as _i16;
 import 'features/prescriptions/domain/usecases/delete_prescription.dart'
-    as _i23;
-import 'features/prescriptions/domain/usecases/get_prescriptions.dart' as _i25;
+    as _i24;
+import 'features/prescriptions/domain/usecases/get_prescriptions.dart' as _i26;
 import 'features/prescriptions/domain/usecases/toggle_prescription_reminder.dart'
     as _i13;
 import 'features/prescriptions/domain/usecases/update_prescription.dart'
@@ -65,14 +66,14 @@ import 'features/prescriptions/domain/usecases/update_prescription.dart'
 import 'features/prescriptions/domain/usecases/watch_prescriptions.dart'
     as _i15;
 import 'features/prescriptions/presentation/bloc/prescription_bloc.dart'
-    as _i33;
+    as _i34;
 import 'features/profile/data/datasources/profile_local_datasource.dart' as _i8;
 import 'features/profile/data/repositories/profile_repository_impl.dart'
     as _i10;
 import 'features/profile/domain/repositories/profile_repository.dart' as _i9;
-import 'features/profile/domain/usecases/get_user_profile.dart' as _i26;
+import 'features/profile/domain/usecases/get_user_profile.dart' as _i27;
 import 'features/profile/domain/usecases/save_user_profile.dart' as _i12;
-import 'features/profile/presentation/bloc/profile_bloc.dart' as _i34;
+import 'features/profile/presentation/bloc/profile_bloc.dart' as _i35;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -119,76 +120,77 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i20.BookAppointment(gh<_i18.AppointmentRepository>()));
     gh.lazySingleton<_i21.CancelAppointment>(
         () => _i21.CancelAppointment(gh<_i18.AppointmentRepository>()));
-    gh.lazySingleton<_i22.DeleteAppointment>(
-        () => _i22.DeleteAppointment(gh<_i18.AppointmentRepository>()));
-    gh.lazySingleton<_i23.DeletePrescription>(
-        () => _i23.DeletePrescription(gh<_i6.PrescriptionRepository>()));
-    gh.lazySingleton<_i24.GetAppointments>(
-        () => _i24.GetAppointments(gh<_i18.AppointmentRepository>()));
-    gh.lazySingleton<_i25.GetPrescriptions>(
-        () => _i25.GetPrescriptions(gh<_i6.PrescriptionRepository>()));
-    gh.lazySingleton<_i26.GetUserProfile>(
-        () => _i26.GetUserProfile(gh<_i9.ProfileRepository>()));
-    gh.lazySingleton<_i27.HealthMetricLocalDataSource>(
-        () => _i27.IsarHealthMetricDataSource(gh<_i4.Isar>()));
-    gh.lazySingleton<_i28.HealthMetricRepository>(() =>
-        _i29.HealthMetricRepositoryImpl(
-            gh<_i27.HealthMetricLocalDataSource>()));
-    gh.lazySingleton<_i30.IntroRepository>(
-        () => _i31.IntroRepositoryImpl(gh<_i4.Isar>()));
-    gh.lazySingleton<_i32.LogHealthMetric>(
-        () => _i32.LogHealthMetric(gh<_i28.HealthMetricRepository>()));
-    gh.factory<_i33.PrescriptionBloc>(() => _i33.PrescriptionBloc(
+    gh.factory<_i22.ChatRepository>(() => _i22.ChatRepository(gh<_i4.Isar>()));
+    gh.lazySingleton<_i23.DeleteAppointment>(
+        () => _i23.DeleteAppointment(gh<_i18.AppointmentRepository>()));
+    gh.lazySingleton<_i24.DeletePrescription>(
+        () => _i24.DeletePrescription(gh<_i6.PrescriptionRepository>()));
+    gh.lazySingleton<_i25.GetAppointments>(
+        () => _i25.GetAppointments(gh<_i18.AppointmentRepository>()));
+    gh.lazySingleton<_i26.GetPrescriptions>(
+        () => _i26.GetPrescriptions(gh<_i6.PrescriptionRepository>()));
+    gh.lazySingleton<_i27.GetUserProfile>(
+        () => _i27.GetUserProfile(gh<_i9.ProfileRepository>()));
+    gh.lazySingleton<_i28.HealthMetricLocalDataSource>(
+        () => _i28.IsarHealthMetricDataSource(gh<_i4.Isar>()));
+    gh.lazySingleton<_i29.HealthMetricRepository>(() =>
+        _i30.HealthMetricRepositoryImpl(
+            gh<_i28.HealthMetricLocalDataSource>()));
+    gh.lazySingleton<_i31.IntroRepository>(
+        () => _i32.IntroRepositoryImpl(gh<_i4.Isar>()));
+    gh.lazySingleton<_i33.LogHealthMetric>(
+        () => _i33.LogHealthMetric(gh<_i29.HealthMetricRepository>()));
+    gh.factory<_i34.PrescriptionBloc>(() => _i34.PrescriptionBloc(
           gh<_i15.WatchPrescriptions>(),
           gh<_i13.TogglePrescriptionReminder>(),
-          gh<_i23.DeletePrescription>(),
+          gh<_i24.DeletePrescription>(),
           gh<_i16.AddPrescription>(),
           gh<_i14.UpdatePrescription>(),
         ));
-    gh.factory<_i34.ProfileBloc>(() => _i34.ProfileBloc(
-          gh<_i26.GetUserProfile>(),
+    gh.factory<_i35.ProfileBloc>(() => _i35.ProfileBloc(
+          gh<_i27.GetUserProfile>(),
           gh<_i12.SaveUserProfile>(),
         ));
-    gh.lazySingleton<_i35.UpdateAppointment>(
-        () => _i35.UpdateAppointment(gh<_i18.AppointmentRepository>()));
-    gh.lazySingleton<_i36.UpdateMetric>(
-        () => _i36.UpdateMetric(gh<_i28.HealthMetricRepository>()));
-    gh.lazySingleton<_i37.WatchAppointments>(
-        () => _i37.WatchAppointments(gh<_i18.AppointmentRepository>()));
-    gh.factory<_i38.AppointmentBloc>(() => _i38.AppointmentBloc(
-          gh<_i37.WatchAppointments>(),
+    gh.lazySingleton<_i36.UpdateAppointment>(
+        () => _i36.UpdateAppointment(gh<_i18.AppointmentRepository>()));
+    gh.lazySingleton<_i37.UpdateMetric>(
+        () => _i37.UpdateMetric(gh<_i29.HealthMetricRepository>()));
+    gh.lazySingleton<_i38.WatchAppointments>(
+        () => _i38.WatchAppointments(gh<_i18.AppointmentRepository>()));
+    gh.factory<_i39.AppointmentBloc>(() => _i39.AppointmentBloc(
+          gh<_i38.WatchAppointments>(),
           gh<_i20.BookAppointment>(),
           gh<_i21.CancelAppointment>(),
-          gh<_i22.DeleteAppointment>(),
-          gh<_i35.UpdateAppointment>(),
+          gh<_i23.DeleteAppointment>(),
+          gh<_i36.UpdateAppointment>(),
         ));
-    gh.lazySingleton<_i39.CheckOnboardingStatus>(
-        () => _i39.CheckOnboardingStatus(gh<_i30.IntroRepository>()));
-    gh.lazySingleton<_i40.CompleteOnboarding>(
-        () => _i40.CompleteOnboarding(gh<_i30.IntroRepository>()));
-    gh.lazySingleton<_i41.DeleteMetric>(
-        () => _i41.DeleteMetric(gh<_i28.HealthMetricRepository>()));
-    gh.lazySingleton<_i42.GetHealthMetrics>(
-        () => _i42.GetHealthMetrics(gh<_i28.HealthMetricRepository>()));
-    gh.factory<_i43.HealthMetricBloc>(() => _i43.HealthMetricBloc(
-          gh<_i42.GetHealthMetrics>(),
-          gh<_i32.LogHealthMetric>(),
-          gh<_i36.UpdateMetric>(),
-          gh<_i41.DeleteMetric>(),
+    gh.lazySingleton<_i40.CheckOnboardingStatus>(
+        () => _i40.CheckOnboardingStatus(gh<_i31.IntroRepository>()));
+    gh.lazySingleton<_i41.CompleteOnboarding>(
+        () => _i41.CompleteOnboarding(gh<_i31.IntroRepository>()));
+    gh.lazySingleton<_i42.DeleteMetric>(
+        () => _i42.DeleteMetric(gh<_i29.HealthMetricRepository>()));
+    gh.lazySingleton<_i43.GetHealthMetrics>(
+        () => _i43.GetHealthMetrics(gh<_i29.HealthMetricRepository>()));
+    gh.factory<_i44.HealthMetricBloc>(() => _i44.HealthMetricBloc(
+          gh<_i43.GetHealthMetrics>(),
+          gh<_i33.LogHealthMetric>(),
+          gh<_i37.UpdateMetric>(),
+          gh<_i42.DeleteMetric>(),
         ));
-    gh.factory<_i44.IntroBloc>(() => _i44.IntroBloc(
-          gh<_i39.CheckOnboardingStatus>(),
-          gh<_i40.CompleteOnboarding>(),
+    gh.factory<_i45.IntroBloc>(() => _i45.IntroBloc(
+          gh<_i40.CheckOnboardingStatus>(),
+          gh<_i41.CompleteOnboarding>(),
         ));
-    gh.factory<_i45.DashboardCubit>(() => _i45.DashboardCubit(
-          gh<_i37.WatchAppointments>(),
+    gh.factory<_i46.DashboardCubit>(() => _i46.DashboardCubit(
+          gh<_i38.WatchAppointments>(),
           gh<_i15.WatchPrescriptions>(),
-          gh<_i42.GetHealthMetrics>(),
+          gh<_i43.GetHealthMetrics>(),
         ));
     return this;
   }
 }
 
-class _$NetworkModule extends _i46.NetworkModule {}
+class _$NetworkModule extends _i47.NetworkModule {}
 
-class _$DatabaseModule extends _i47.DatabaseModule {}
+class _$DatabaseModule extends _i48.DatabaseModule {}

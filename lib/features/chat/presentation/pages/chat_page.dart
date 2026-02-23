@@ -1,3 +1,4 @@
+import 'package:care_sync/features/chat/data/gemini_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,14 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../health_metrics/domain/entities/health_metric.dart';
 import '../../../health_metrics/presentation/bloc/health_metric_bloc.dart';
-import '../../data/gemini_service.dart';
-
-class ChatMessage {
-  final String text;
-  final bool isUser;
-
-  ChatMessage({required this.text, required this.isUser});
-}
+import '../../../../injection_container.dart';
+import '../../domain/entities/chat_message_entity.dart';
+import '../../domain/repositories/chat_repository.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
@@ -24,19 +20,41 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
-  final List<ChatMessage> _messages = [];
+  List<ChatMessageEntity> _messages = [];
   final GeminiChatService _chatService = GeminiChatService();
+  final ChatRepository _chatRepository = getIt<ChatRepository>();
   bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadHistory();
+  }
+
+  Future<void> _loadHistory() async {
+    final history = await _chatRepository.getChatHistory();
+    setState(() {
+      _messages = history;
+    });
+  }
 
   void _sendMessage() async {
     final text = _controller.text.trim();
     if (text.isEmpty) return;
 
+    final userMessage = ChatMessageEntity()
+      ..text = text
+      ..isUser = true
+      ..timestamp = DateTime.now();
+
     setState(() {
-      _messages.add(ChatMessage(text: text, isUser: true));
+      _messages.add(userMessage);
       _isLoading = true;
     });
     _controller.clear();
+
+    // Save user message to Isar
+    await _chatRepository.saveMessage(userMessage);
 
     // Fetch context from the bloc
     final state = context.read<HealthMetricBloc>().state;
@@ -46,12 +64,22 @@ class _ChatScreenState extends State<ChatScreen> {
       orElse: () {},
     );
 
-    // Call Gemini API
-    final response = await _chatService.sendMessage(text, metrics);
+    // Pass history so far to the chat service (excluding the newly added user message if we format differently,
+    // but the service `sendMessage` appends the text directly. We pass full history so far.)
+    final responseText = await _chatService.sendMessage(
+        text, metrics, _messages.where((m) => m != userMessage).toList());
+
+    final modelMessage = ChatMessageEntity()
+      ..text = responseText
+      ..isUser = false
+      ..timestamp = DateTime.now();
+
+    // Save model message to Isar
+    await _chatRepository.saveMessage(modelMessage);
 
     if (mounted) {
       setState(() {
-        _messages.add(ChatMessage(text: response, isUser: false));
+        _messages.add(modelMessage);
         _isLoading = false;
       });
     }
@@ -92,7 +120,7 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  Widget _buildMessageBubble(ChatMessage message) {
+  Widget _buildMessageBubble(ChatMessageEntity message) {
     return Align(
       alignment: message.isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
@@ -109,7 +137,9 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Text(
           message.text,
           style: GoogleFonts.inter(
-            color: message.isUser ? Colors.white : Theme.of(context).colorScheme.onSurface,
+            color: message.isUser
+                ? Colors.white
+                : Theme.of(context).colorScheme.onSurface,
             fontSize: 14.sp,
           ),
         ),
