@@ -49,7 +49,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         );
       },
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: SafeArea(
           child: Column(
             children: [
@@ -67,7 +67,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     child: Text(
                       'Skip',
                       style: GoogleFonts.inter(
-                        color: AppColors.textSecondary,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -162,7 +162,7 @@ class _OnboardingSlide extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(40.w),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.surface,
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
@@ -188,7 +188,7 @@ class _OnboardingSlide extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 24.sp,
               fontWeight: FontWeight.bold,
-              color: AppColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
               height: 1.2,
             ),
           ).animate().fadeIn(delay: 200.ms).moveY(begin: 20, end: 0),
@@ -198,7 +198,7 @@ class _OnboardingSlide extends StatelessWidget {
             textAlign: TextAlign.center,
             style: GoogleFonts.inter(
               fontSize: 16.sp,
-              color: AppColors.textSecondary,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
               height: 1.5,
             ),
           ).animate().fadeIn(delay: 300.ms).moveY(begin: 20, end: 0),

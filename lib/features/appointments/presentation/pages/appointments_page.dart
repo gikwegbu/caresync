@@ -37,7 +37,7 @@ class _AppointmentsView extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           backgroundColor: AppColors.nhsBlue,
           iconTheme: const IconThemeData(color: Colors.white),
@@ -45,7 +45,7 @@ class _AppointmentsView extends StatelessWidget {
             'Appointments',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.surface,
             ),
           ),
           bottom: TabBar(
@@ -130,7 +130,7 @@ class _AppointmentList extends StatelessWidget {
                           ? 'No upcoming appointments'
                           : 'No past appointments',
                       style: GoogleFonts.inter(
-                        color: AppColors.textSecondary,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         fontSize: 16.sp,
                       ),
                     ),

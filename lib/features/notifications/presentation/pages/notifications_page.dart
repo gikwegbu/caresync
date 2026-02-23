@@ -28,7 +28,7 @@ class NotificationsPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           'Notifications',
@@ -52,7 +52,7 @@ class NotificationsPage extends StatelessWidget {
                 builder: (context) => Container(
                   padding: EdgeInsets.all(24.w),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(20.r)),
                   ),
@@ -76,7 +76,7 @@ class NotificationsPage extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       SizedBox(height: 8.h),
@@ -92,7 +92,7 @@ class NotificationsPage extends StatelessWidget {
                         n['body']!,
                         style: GoogleFonts.inter(
                           fontSize: 16.sp,
-                          color: AppColors.textPrimary,
+                          color: Theme.of(context).colorScheme.onSurface,
                           height: 1.5,
                         ),
                       ),
@@ -113,7 +113,7 @@ class NotificationsPage extends StatelessWidget {
                             style: GoogleFonts.inter(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.surface,
                             ),
                           ),
                         ),
@@ -126,7 +126,7 @@ class NotificationsPage extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(16.w),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(12.r),
                 boxShadow: [
                   BoxShadow(
@@ -158,7 +158,7 @@ class NotificationsPage extends StatelessWidget {
                   Text(
                     n['body']!,
                     style: GoogleFonts.inter(
-                        fontSize: 14.sp, color: AppColors.textSecondary),
+                        fontSize: 14.sp, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   ),
                 ],
               ),

@@ -48,7 +48,7 @@ class _EditProfileSheetState extends State<EditProfileSheet> {
       ),
       height: 0.85.sh, // Make it tall
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
       child: Column(

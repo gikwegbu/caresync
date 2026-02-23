@@ -20,18 +20,21 @@ mixin _$IntroEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() checkStatus,
     required TResult Function() complete,
+    required TResult Function() acceptDisclaimer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
+    TResult? Function()? acceptDisclaimer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkStatus,
     TResult Function()? complete,
+    TResult Function()? acceptDisclaimer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$IntroEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
+    required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
+    TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
+    TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$CheckStatusImpl implements _CheckStatus {
   TResult when<TResult extends Object?>({
     required TResult Function() checkStatus,
     required TResult Function() complete,
+    required TResult Function() acceptDisclaimer,
   }) {
     return checkStatus();
   }
@@ -123,6 +130,7 @@ class _$CheckStatusImpl implements _CheckStatus {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
+    TResult? Function()? acceptDisclaimer,
   }) {
     return checkStatus?.call();
   }
@@ -132,6 +140,7 @@ class _$CheckStatusImpl implements _CheckStatus {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkStatus,
     TResult Function()? complete,
+    TResult Function()? acceptDisclaimer,
     required TResult orElse(),
   }) {
     if (checkStatus != null) {
@@ -145,6 +154,7 @@ class _$CheckStatusImpl implements _CheckStatus {
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
+    required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
   }) {
     return checkStatus(this);
   }
@@ -154,6 +164,7 @@ class _$CheckStatusImpl implements _CheckStatus {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
+    TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
   }) {
     return checkStatus?.call(this);
   }
@@ -163,6 +174,7 @@ class _$CheckStatusImpl implements _CheckStatus {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
+    TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
     required TResult orElse(),
   }) {
     if (checkStatus != null) {
@@ -216,6 +228,7 @@ class _$CompleteImpl implements _Complete {
   TResult when<TResult extends Object?>({
     required TResult Function() checkStatus,
     required TResult Function() complete,
+    required TResult Function() acceptDisclaimer,
   }) {
     return complete();
   }
@@ -225,6 +238,7 @@ class _$CompleteImpl implements _Complete {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
+    TResult? Function()? acceptDisclaimer,
   }) {
     return complete?.call();
   }
@@ -234,6 +248,7 @@ class _$CompleteImpl implements _Complete {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkStatus,
     TResult Function()? complete,
+    TResult Function()? acceptDisclaimer,
     required TResult orElse(),
   }) {
     if (complete != null) {
@@ -247,6 +262,7 @@ class _$CompleteImpl implements _Complete {
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
+    required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
   }) {
     return complete(this);
   }
@@ -256,6 +272,7 @@ class _$CompleteImpl implements _Complete {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
+    TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
   }) {
     return complete?.call(this);
   }
@@ -265,6 +282,7 @@ class _$CompleteImpl implements _Complete {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
+    TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
     required TResult orElse(),
   }) {
     if (complete != null) {
@@ -279,12 +297,121 @@ abstract class _Complete implements IntroEvent {
 }
 
 /// @nodoc
+abstract class _$$AcceptDisclaimerImplCopyWith<$Res> {
+  factory _$$AcceptDisclaimerImplCopyWith(_$AcceptDisclaimerImpl value,
+          $Res Function(_$AcceptDisclaimerImpl) then) =
+      __$$AcceptDisclaimerImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AcceptDisclaimerImplCopyWithImpl<$Res>
+    extends _$IntroEventCopyWithImpl<$Res, _$AcceptDisclaimerImpl>
+    implements _$$AcceptDisclaimerImplCopyWith<$Res> {
+  __$$AcceptDisclaimerImplCopyWithImpl(_$AcceptDisclaimerImpl _value,
+      $Res Function(_$AcceptDisclaimerImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
+  const _$AcceptDisclaimerImpl();
+
+  @override
+  String toString() {
+    return 'IntroEvent.acceptDisclaimer()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AcceptDisclaimerImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkStatus,
+    required TResult Function() complete,
+    required TResult Function() acceptDisclaimer,
+  }) {
+    return acceptDisclaimer();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkStatus,
+    TResult? Function()? complete,
+    TResult? Function()? acceptDisclaimer,
+  }) {
+    return acceptDisclaimer?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkStatus,
+    TResult Function()? complete,
+    TResult Function()? acceptDisclaimer,
+    required TResult orElse(),
+  }) {
+    if (acceptDisclaimer != null) {
+      return acceptDisclaimer();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckStatus value) checkStatus,
+    required TResult Function(_Complete value) complete,
+    required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
+  }) {
+    return acceptDisclaimer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckStatus value)? checkStatus,
+    TResult? Function(_Complete value)? complete,
+    TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
+  }) {
+    return acceptDisclaimer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckStatus value)? checkStatus,
+    TResult Function(_Complete value)? complete,
+    TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    required TResult orElse(),
+  }) {
+    if (acceptDisclaimer != null) {
+      return acceptDisclaimer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AcceptDisclaimer implements IntroEvent {
+  const factory _AcceptDisclaimer() = _$AcceptDisclaimerImpl;
+}
+
+/// @nodoc
 mixin _$IntroState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
+    required TResult Function() disclaimerRequired,
     required TResult Function() completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -293,6 +420,7 @@ mixin _$IntroState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
+    TResult? Function()? disclaimerRequired,
     TResult? Function()? completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -301,6 +429,7 @@ mixin _$IntroState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
+    TResult Function()? disclaimerRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) =>
@@ -310,6 +439,7 @@ mixin _$IntroState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
     required TResult Function(_Completed value) completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -318,6 +448,7 @@ mixin _$IntroState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult? Function(_Completed value)? completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -326,6 +457,7 @@ mixin _$IntroState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) =>
@@ -391,6 +523,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
+    required TResult Function() disclaimerRequired,
     required TResult Function() completed,
   }) {
     return initial();
@@ -402,6 +535,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
+    TResult? Function()? disclaimerRequired,
     TResult? Function()? completed,
   }) {
     return initial?.call();
@@ -413,6 +547,7 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
+    TResult Function()? disclaimerRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -428,6 +563,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return initial(this);
@@ -439,6 +575,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return initial?.call(this);
@@ -450,6 +587,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -505,6 +643,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
+    required TResult Function() disclaimerRequired,
     required TResult Function() completed,
   }) {
     return loading();
@@ -516,6 +655,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
+    TResult? Function()? disclaimerRequired,
     TResult? Function()? completed,
   }) {
     return loading?.call();
@@ -527,6 +667,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
+    TResult Function()? disclaimerRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -542,6 +683,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return loading(this);
@@ -553,6 +695,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return loading?.call(this);
@@ -564,6 +707,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -619,6 +763,7 @@ class _$RequiredImpl implements _Required {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
+    required TResult Function() disclaimerRequired,
     required TResult Function() completed,
   }) {
     return required();
@@ -630,6 +775,7 @@ class _$RequiredImpl implements _Required {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
+    TResult? Function()? disclaimerRequired,
     TResult? Function()? completed,
   }) {
     return required?.call();
@@ -641,6 +787,7 @@ class _$RequiredImpl implements _Required {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
+    TResult Function()? disclaimerRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -656,6 +803,7 @@ class _$RequiredImpl implements _Required {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return required(this);
@@ -667,6 +815,7 @@ class _$RequiredImpl implements _Required {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return required?.call(this);
@@ -678,6 +827,7 @@ class _$RequiredImpl implements _Required {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -690,6 +840,126 @@ class _$RequiredImpl implements _Required {
 
 abstract class _Required implements IntroState {
   const factory _Required() = _$RequiredImpl;
+}
+
+/// @nodoc
+abstract class _$$DisclaimerRequiredImplCopyWith<$Res> {
+  factory _$$DisclaimerRequiredImplCopyWith(_$DisclaimerRequiredImpl value,
+          $Res Function(_$DisclaimerRequiredImpl) then) =
+      __$$DisclaimerRequiredImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$DisclaimerRequiredImplCopyWithImpl<$Res>
+    extends _$IntroStateCopyWithImpl<$Res, _$DisclaimerRequiredImpl>
+    implements _$$DisclaimerRequiredImplCopyWith<$Res> {
+  __$$DisclaimerRequiredImplCopyWithImpl(_$DisclaimerRequiredImpl _value,
+      $Res Function(_$DisclaimerRequiredImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
+  const _$DisclaimerRequiredImpl();
+
+  @override
+  String toString() {
+    return 'IntroState.disclaimerRequired()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$DisclaimerRequiredImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() required,
+    required TResult Function() disclaimerRequired,
+    required TResult Function() completed,
+  }) {
+    return disclaimerRequired();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? required,
+    TResult? Function()? disclaimerRequired,
+    TResult? Function()? completed,
+  }) {
+    return disclaimerRequired?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? required,
+    TResult Function()? disclaimerRequired,
+    TResult Function()? completed,
+    required TResult orElse(),
+  }) {
+    if (disclaimerRequired != null) {
+      return disclaimerRequired();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_Completed value) completed,
+  }) {
+    return disclaimerRequired(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_Completed value)? completed,
+  }) {
+    return disclaimerRequired?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_Completed value)? completed,
+    required TResult orElse(),
+  }) {
+    if (disclaimerRequired != null) {
+      return disclaimerRequired(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DisclaimerRequired implements IntroState {
+  const factory _DisclaimerRequired() = _$DisclaimerRequiredImpl;
 }
 
 /// @nodoc
@@ -733,6 +1003,7 @@ class _$CompletedImpl implements _Completed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
+    required TResult Function() disclaimerRequired,
     required TResult Function() completed,
   }) {
     return completed();
@@ -744,6 +1015,7 @@ class _$CompletedImpl implements _Completed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
+    TResult? Function()? disclaimerRequired,
     TResult? Function()? completed,
   }) {
     return completed?.call();
@@ -755,6 +1027,7 @@ class _$CompletedImpl implements _Completed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
+    TResult Function()? disclaimerRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -770,6 +1043,7 @@ class _$CompletedImpl implements _Completed {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return completed(this);
@@ -781,6 +1055,7 @@ class _$CompletedImpl implements _Completed {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return completed?.call(this);
@@ -792,6 +1067,7 @@ class _$CompletedImpl implements _Completed {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {

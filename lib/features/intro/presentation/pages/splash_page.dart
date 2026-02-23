@@ -28,9 +28,11 @@ class _SplashPageState extends State<SplashPage> {
         state.whenOrNull(
           required: () => context.go('/onboarding'),
           completed: () => context.go('/dashboard'),
+          disclaimerRequired: () => _showDisclaimerDialog(context),
         );
       },
       child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -51,7 +53,7 @@ class _SplashPageState extends State<SplashPage> {
                   width: 120.w,
                   height: 120.w,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
@@ -86,7 +88,7 @@ class _SplashPageState extends State<SplashPage> {
                   style: GoogleFonts.poppins(
                     fontSize: 32.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                     letterSpacing: 1.2,
                   ),
                 ).animate().fadeIn(duration: 600.ms).moveY(begin: 20, end: 0),
@@ -106,6 +108,62 @@ class _SplashPageState extends State<SplashPage> {
           ),
         ),
       ),
+    );
+  }
+
+  void _showDisclaimerDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return PopScope(
+          canPop: false,
+          child: AlertDialog(
+            title: Text(
+              'About This App & Data Privacy',
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            content: SingleChildScrollView(
+              child: Text(
+                "This app is a personalised project built for individual use. By continuing, you acknowledge that you are choosing to use this app of your own accord.\n\nYour health data is stored locally on your device and is not transmitted to any external server, except when you choose to use the AI Chatbot feature, at which point your reading data is sent to Google's Gemini API for analysis.\n\nBy using this app, you accept these terms.",
+                style: GoogleFonts.inter(
+                  fontSize: 14.sp,
+                  height: 1.5,
+                ),
+              ),
+            ),
+            actions: [
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.nhsBlue,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.r),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    context
+                        .read<IntroBloc>()
+                        .add(const IntroEvent.acceptDisclaimer());
+                  },
+                  child: Text(
+                    'I Understand & Continue',
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

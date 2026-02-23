@@ -57,7 +57,7 @@ class _LogMetricSheetState extends State<LogMetricSheet> {
         bottom: MediaQuery.of(context).viewInsets.bottom + 24.w,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
       child: Column(

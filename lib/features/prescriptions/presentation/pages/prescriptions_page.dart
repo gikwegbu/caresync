@@ -37,7 +37,7 @@ class _PrescriptionsView extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: AppColors.background,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         appBar: AppBar(
           backgroundColor: AppColors.nhsBlue,
           iconTheme: const IconThemeData(color: Colors.white),
@@ -45,7 +45,7 @@ class _PrescriptionsView extends StatelessWidget {
             'Prescriptions',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.surface,
             ),
           ),
           bottom: TabBar(
@@ -117,7 +117,7 @@ class _PrescriptionList extends StatelessWidget {
                           ? 'No active prescriptions'
                           : 'No prescription history',
                       style: GoogleFonts.inter(
-                        color: AppColors.textSecondary,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         fontSize: 16.sp,
                       ),
                     ),
@@ -151,7 +151,7 @@ class _PrescriptionCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
@@ -173,7 +173,7 @@ class _PrescriptionCard extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
-                    color: AppColors.textPrimary,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
               ),
@@ -189,7 +189,7 @@ class _PrescriptionCard extends StatelessWidget {
                   activeColor: AppColors.nhsBlue,
                 ),
               PopupMenuButton<String>(
-                icon: Icon(Icons.more_vert, color: AppColors.textSecondary),
+                icon: Icon(Icons.more_vert, color: Theme.of(context).colorScheme.onSurfaceVariant),
                 onSelected: (value) {
                   if (value == 'edit') {
                     Navigator.push(
@@ -233,7 +233,7 @@ class _PrescriptionCard extends StatelessWidget {
             '${prescription.dosage} • ${prescription.frequency}',
             style: GoogleFonts.inter(
               fontSize: 14.sp,
-              color: AppColors.textSecondary,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
           if (prescription.status == 'active') ...[

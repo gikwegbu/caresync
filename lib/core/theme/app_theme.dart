@@ -20,6 +20,7 @@ class AppTheme {
         onError: Colors.white,
         background: AppColors.background,
         onBackground: AppColors.textPrimary,
+        onSurfaceVariant: AppColors.textSecondary,
       ),
       textTheme: _textTheme(AppColors.textPrimary, AppColors.textSecondary),
       appBarTheme: AppBarTheme(
@@ -94,6 +95,7 @@ class AppTheme {
         onError: Colors.white,
         background: AppColors.darkBackground,
         onBackground: AppColors.darkTextPrimary,
+        onSurfaceVariant: AppColors.darkTextSecondary,
       ),
       textTheme:
           _textTheme(AppColors.darkTextPrimary, AppColors.darkTextSecondary),

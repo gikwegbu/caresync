@@ -47,7 +47,7 @@ class _BookAppointmentSheetState extends State<BookAppointmentSheet> {
     return Container(
       height: 0.85.sh,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
       ),
       child: Column(

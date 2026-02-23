@@ -33,7 +33,7 @@ class _DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () => context.read<DashboardCubit>().loadDashboardData(),
@@ -47,6 +47,11 @@ class _DashboardView extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => context.push('/chat'),
+        backgroundColor: AppColors.nhsBlue,
+        child: const Icon(Icons.chat_bubble_outline, color: Colors.white),
       ),
     );
   }
@@ -67,7 +72,7 @@ class _DashboardView extends StatelessWidget {
                       _getGreeting(),
                       style: GoogleFonts.inter(
                         fontSize: 14.sp,
-                        color: AppColors.textSecondary,
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                       ),
                     ),
                     state.maybeWhen(
@@ -76,7 +81,7 @@ class _DashboardView extends StatelessWidget {
                         style: GoogleFonts.poppins(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.bold,
-                          color: AppColors.textPrimary,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       loading: () => Shimmer.fromColors(
@@ -85,7 +90,7 @@ class _DashboardView extends StatelessWidget {
                         child: Container(
                           width: 150.w,
                           height: 30.h,
-                          color: Colors.white,
+                          color: Theme.of(context).colorScheme.surface,
                         ),
                       ),
                       orElse: () => const SizedBox(),
@@ -191,7 +196,7 @@ class _DashboardView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.textPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             SizedBox(height: 16.h),
@@ -239,7 +244,7 @@ class _DashboardView extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
-                color: AppColors.textPrimary,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             SizedBox(height: 16.h),
@@ -247,7 +252,7 @@ class _DashboardView extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(16.w),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
                 borderRadius: BorderRadius.circular(12.r),
                 boxShadow: [
                   BoxShadow(
@@ -271,14 +276,14 @@ class _DashboardView extends StatelessWidget {
                         'Prescription Ordered',
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w600,
-                          color: AppColors.textPrimary,
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       Text(
                         'Amoxicillin 500mg',
                         style: GoogleFonts.inter(
                           fontSize: 12.sp,
-                          color: AppColors.textSecondary,
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       ),
                     ],
@@ -288,7 +293,7 @@ class _DashboardView extends StatelessWidget {
                     'Today',
                     style: GoogleFonts.inter(
                       fontSize: 12.sp,
-                      color: AppColors.textSecondary,
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
                     ),
                   ),
                 ],
@@ -340,7 +345,7 @@ class _SummaryCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(icon, color: Colors.white, size: 28.w),
+            Icon(icon, color: Theme.of(context).colorScheme.surface, size: 28.w),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -351,7 +356,7 @@ class _SummaryCard extends StatelessWidget {
                     child: Container(
                       width: 40.w,
                       height: 24.h,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.surface,
                     ),
                   )
                 else
@@ -360,7 +365,7 @@ class _SummaryCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 22.sp,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.surface,
                     ),
                   ),
                 SizedBox(height: 4.h),
@@ -401,7 +406,7 @@ class _QuickActionButton extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(16.w),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.surface,
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
@@ -419,7 +424,7 @@ class _QuickActionButton extends StatelessWidget {
             style: GoogleFonts.inter(
               fontSize: 12.sp,
               fontWeight: FontWeight.w500,
-              color: AppColors.textSecondary,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
         ],

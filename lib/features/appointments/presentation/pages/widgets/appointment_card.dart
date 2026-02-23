@@ -20,7 +20,7 @@ class AppointmentCard extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
           color: isCancelled
@@ -68,7 +68,7 @@ class AppointmentCard extends StatelessWidget {
                 )
               else
                 PopupMenuButton<String>(
-                  icon: Icon(Icons.more_vert, color: AppColors.textSecondary),
+                  icon: Icon(Icons.more_vert, color: Theme.of(context).colorScheme.onSurfaceVariant),
                   onSelected: (value) {
                     if (value == 'edit') {
                       showModalBottomSheet(
@@ -114,21 +114,21 @@ class AppointmentCard extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 16.sp,
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           SizedBox(height: 4.h),
           Row(
             children: [
               Icon(Icons.calendar_today,
-                  size: 14.w, color: AppColors.textSecondary),
+                  size: 14.w, color: Theme.of(context).colorScheme.onSurfaceVariant),
               SizedBox(width: 4.w),
               Text(
                 DateFormat('EEE, d MMM yyyy • HH:mm')
                     .format(appointment.dateTime),
                 style: GoogleFonts.inter(
                   fontSize: 14.sp,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],
@@ -137,13 +137,13 @@ class AppointmentCard extends StatelessWidget {
           Row(
             children: [
               Icon(Icons.location_on_outlined,
-                  size: 14.w, color: AppColors.textSecondary),
+                  size: 14.w, color: Theme.of(context).colorScheme.onSurfaceVariant),
               SizedBox(width: 4.w),
               Text(
                 appointment.location,
                 style: GoogleFonts.inter(
                   fontSize: 14.sp,
-                  color: AppColors.textSecondary,
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
               ),
             ],

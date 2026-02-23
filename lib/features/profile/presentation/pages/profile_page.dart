@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/theme_cubit.dart';
+import '../../../health_metrics/domain/entities/health_metric.dart';
+import '../../../health_metrics/presentation/bloc/health_metric_bloc.dart';
+import '../../domain/services/export_service.dart';
 import '../../domain/entities/user_profile.dart';
 import '../bloc/profile_bloc.dart';
 import 'widgets/edit_profile_sheet.dart'; // Will create this
@@ -35,7 +38,7 @@ class _ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           'My Profile',
@@ -94,16 +97,16 @@ class _ProfileView extends StatelessWidget {
               padding: EdgeInsets.all(16.w),
               child: Column(
                 children: [
-                  _buildHeader(profile),
+                  _buildHeader(context, profile),
                   SizedBox(height: 24.h),
-                  _buildSection('Personal Details', [
-                    _buildDetailRow('NHS Number', profile.nhsNumber),
-                    _buildDetailRow('Date of Birth',
+                  _buildSection(context, 'Personal Details', [
+                    _buildDetailRow(context, 'NHS Number', profile.nhsNumber),
+                    _buildDetailRow(context, 'Date of Birth',
                         DateFormat('dd MMM yyyy').format(profile.dob)),
-                    _buildDetailRow('GP Practice', profile.gpPractice),
+                    _buildDetailRow(context, 'GP Practice', profile.gpPractice),
                   ]),
                   SizedBox(height: 24.h),
-                  _buildSection('Medical Conditions', [
+                  _buildSection(context, 'Medical Conditions', [
                     if (profile.medicalConditions.isEmpty)
                       Text('None listed',
                           style: GoogleFonts.inter(color: Colors.grey))
@@ -121,6 +124,32 @@ class _ProfileView extends StatelessWidget {
                             .toList(),
                       ),
                   ]),
+                  SizedBox(height: 24.h),
+                  _buildPrivacySection(context),
+                  SizedBox(height: 24.h),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.nhsBlue,
+                        foregroundColor: Colors.white,
+                        padding: EdgeInsets.symmetric(vertical: 16.h),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12.r),
+                        ),
+                      ),
+                      onPressed: () => _showExportSheet(context),
+                      icon: const Icon(Icons.download),
+                      label: Text(
+                        'Export Health Data',
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 32.h),
                 ],
               ),
             ),
@@ -130,7 +159,7 @@ class _ProfileView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(UserProfile profile) {
+  Widget _buildHeader(BuildContext context, UserProfile profile) {
     return Column(
       children: [
         CircleAvatar(
@@ -141,7 +170,7 @@ class _ProfileView extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 32.sp,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.surface,
             ),
           ),
         ),
@@ -151,26 +180,27 @@ class _ProfileView extends StatelessWidget {
           style: GoogleFonts.poppins(
             fontSize: 24.sp,
             fontWeight: FontWeight.bold,
-            color: AppColors.textPrimary,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         Text(
           '${profile.age} years old',
           style: GoogleFonts.inter(
             fontSize: 16.sp,
-            color: AppColors.textSecondary,
+            color: Theme.of(context).colorScheme.onSurfaceVariant,
           ),
         ),
       ],
     );
   }
 
-  Widget _buildSection(String title, List<Widget> children) {
+  Widget _buildSection(
+      BuildContext context, String title, List<Widget> children) {
     return Container(
       width: double.infinity,
       padding: EdgeInsets.all(16.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
@@ -188,7 +218,7 @@ class _ProfileView extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 18.sp,
               fontWeight: FontWeight.w600,
-              color: AppColors.textPrimary,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           SizedBox(height: 16.h),
@@ -198,13 +228,15 @@ class _ProfileView extends StatelessWidget {
     );
   }
 
-  Widget _buildDetailRow(String label, String value) {
+  Widget _buildDetailRow(BuildContext context, String label, String value) {
     return Padding(
       padding: EdgeInsets.only(bottom: 12.h),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: GoogleFonts.inter(color: AppColors.textSecondary)),
+          Text(label,
+              style: GoogleFonts.inter(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant)),
           Text(value, style: GoogleFonts.inter(fontWeight: FontWeight.w500)),
         ],
       ),
@@ -218,5 +250,167 @@ class _ProfileView extends StatelessWidget {
       backgroundColor: Colors.transparent,
       builder: (_) => EditProfileSheet(profile: currentProfile),
     );
+  }
+
+  Widget _buildPrivacySection(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: BorderRadius.circular(12.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: ExpansionTile(
+        title: Text(
+          'About This App & Data Privacy',
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.w600,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
+        ),
+        iconColor: AppColors.nhsBlue,
+        childrenPadding: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 16.h),
+        children: [
+          Text(
+            "This app is a personalised project built for individual use. By continuing, you acknowledge that you are choosing to use this app of your own accord.\n\nYour health data is stored locally on your device and is not transmitted to any external server, except when you choose to use the AI Chatbot feature, at which point your reading data is sent to Google's Gemini API for analysis.\n\nBy using this app, you accept these terms.",
+            style: GoogleFonts.inter(
+              fontSize: 14.sp,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+              height: 1.5,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showExportSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
+      ),
+      builder: (bottomSheetContext) {
+        return SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(16.w),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Export Data',
+                  style: GoogleFonts.poppins(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  'Choose a format to export your health readings.',
+                  style: GoogleFonts.inter(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
+                SizedBox(height: 24.h),
+                _buildExportOption(
+                  context: context,
+                  icon: Icons.table_chart,
+                  title: 'CSV format',
+                  subtitle: 'Spreadsheet format',
+                  onTap: () async {
+                    Navigator.pop(bottomSheetContext);
+                    await _exportData(context, 'csv');
+                  },
+                ),
+                _buildExportOption(
+                  context: context,
+                  icon: Icons.picture_as_pdf,
+                  title: 'PDF Document',
+                  subtitle: 'Formatted report',
+                  onTap: () async {
+                    Navigator.pop(bottomSheetContext);
+                    await _exportData(context, 'pdf');
+                  },
+                ),
+                _buildExportOption(
+                  context: context,
+                  icon: Icons.data_object,
+                  title: 'JSON format',
+                  subtitle: 'Raw structured data',
+                  onTap: () async {
+                    Navigator.pop(bottomSheetContext);
+                    await _exportData(context, 'json');
+                  },
+                ),
+                SizedBox(height: 16.h),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildExportOption({
+    required BuildContext context,
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+  }) {
+    return ListTile(
+      leading: Container(
+        padding: EdgeInsets.all(8.w),
+        decoration: BoxDecoration(
+          color: AppColors.nhsBlue.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Icon(icon, color: AppColors.nhsBlue),
+      ),
+      title:
+          Text(title, style: GoogleFonts.poppins(fontWeight: FontWeight.w500)),
+      subtitle: Text(subtitle, style: GoogleFonts.inter(fontSize: 12.sp)),
+      trailing: const Icon(Icons.chevron_right),
+      onTap: onTap,
+    );
+  }
+
+  Future<void> _exportData(BuildContext context, String format) async {
+    // 1. Get health metrics
+    final state = context.read<HealthMetricBloc>().state;
+    List<HealthMetric> metrics = [];
+    state.maybeWhen(
+      loaded: (m) => metrics = m,
+      orElse: () {},
+    );
+
+    if (metrics.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No health data available to export.')),
+      );
+      return;
+    }
+
+    try {
+      final exportService = ExportService();
+      if (format == 'csv') {
+        await exportService.exportToCsv(metrics);
+      } else if (format == 'pdf') {
+        await exportService.exportToPdf(metrics);
+      } else if (format == 'json') {
+        await exportService.exportToJson(metrics);
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Failed to export data: $e')),
+        );
+      }
+    }
   }
 }

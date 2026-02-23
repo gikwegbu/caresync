@@ -45,7 +45,7 @@ class _PrescriptionFormPageState extends State<PrescriptionFormPage> {
     final isEditing = widget.prescription != null;
 
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           isEditing ? 'Edit Prescription' : 'New Prescription',
@@ -106,7 +106,7 @@ class _PrescriptionFormPageState extends State<PrescriptionFormPage> {
                   style: GoogleFonts.inter(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w600,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.surface,
                   ),
                 ),
               ),
@@ -134,7 +134,7 @@ class _PrescriptionFormPageState extends State<PrescriptionFormPage> {
           style: GoogleFonts.inter(
             fontSize: 14.sp,
             fontWeight: FontWeight.w600,
-            color: AppColors.textPrimary,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
         SizedBox(height: 8.h),

@@ -7,6 +7,7 @@ import '../../domain/usecases/cancel_appointment.dart';
 import '../../domain/usecases/watch_appointments.dart';
 import '../../domain/usecases/delete_appointment.dart';
 import '../../domain/usecases/update_appointment.dart';
+import 'package:add_2_calendar/add_2_calendar.dart';
 
 part 'appointment_event.dart';
 part 'appointment_state.dart';
@@ -50,12 +51,20 @@ class AppointmentBloc extends Bloc<AppointmentEvent, AppointmentState> {
     _BookNewAppointment event,
     Emitter<AppointmentState> emit,
   ) async {
-    // We keep the current state loaded while booking or emit a specific booking state
-    // For simplicity, let's just show loading or optimistic update.
-    // Ideally we'd have a specific `isBooking` flag or separate state.
-    // Let's re-load after booking.
     try {
       await _bookAppointment(event.appointment);
+
+      // Calendar Integration
+      final eventCal = Event(
+        title: 'Medical Appt: ${event.appointment.specialty}',
+        description: event.appointment.notes ?? 'Doctor Appointment',
+        location: event.appointment.location,
+        startDate: event.appointment.dateTime,
+        endDate: event.appointment.dateTime.add(const Duration(minutes: 30)),
+        iosParams: const IOSParams(reminder: Duration(minutes: 90)),
+        androidParams: const AndroidParams(emailInvites: []),
+      );
+      await Add2Calendar.addEvent2Cal(eventCal);
     } catch (e) {
       emit(AppointmentState.error(e.toString()));
     }
