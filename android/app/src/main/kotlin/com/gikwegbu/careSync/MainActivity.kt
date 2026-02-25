@@ -1,4 +1,4 @@
-package com.caresync.care_sync
+package com.gikwegbu.careSync
 
 import io.flutter.embedding.android.FlutterActivity
 
