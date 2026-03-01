@@ -75,6 +75,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **George Ikwegbu**
 - **Website:** [gikwegbu.netlify.app](https://gikwegbu.netlify.app/)
-- **LinkedIn:** [linkedin.com/in/georgeikwegbu](https://www.linkedin.com/in/georgeikwegbu)
+- **LinkedIn:** [linkedin.com/in/georgeikwegbu](https://www.linkedin.com/in/gikwegbu)
 - **Twitter / X:** [@gikwegbu](https://twitter.com/gikwegbu)
-- **GitHub:** [@georgeikwegbu](https://github.com/georgeikwegbu)
+- **GitHub:** [@georgeikwegbu](https://github.com/gikwegbu)
