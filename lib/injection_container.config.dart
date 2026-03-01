@@ -150,6 +150,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i35.ProfileBloc>(() => _i35.ProfileBloc(
           gh<_i27.GetUserProfile>(),
           gh<_i12.SaveUserProfile>(),
+          gh<_i31.IntroRepository>(),
         ));
     gh.lazySingleton<_i36.UpdateAppointment>(
         () => _i36.UpdateAppointment(gh<_i18.AppointmentRepository>()));
@@ -181,6 +182,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i45.IntroBloc>(() => _i45.IntroBloc(
           gh<_i40.CheckOnboardingStatus>(),
           gh<_i41.CompleteOnboarding>(),
+          gh<_i31.IntroRepository>(),
         ));
     gh.factory<_i46.DashboardCubit>(() => _i46.DashboardCubit(
           gh<_i38.WatchAppointments>(),

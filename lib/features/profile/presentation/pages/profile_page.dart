@@ -75,7 +75,7 @@ class _ProfileView extends StatelessWidget {
                 // We need current profile to edit
                 UserProfile? currentProfile;
                 state.maybeWhen(
-                  loaded: (p) => currentProfile = p,
+                  loaded: (p, _) => currentProfile = p,
                   orElse: () {},
                 );
                 _showEditSheet(context, currentProfile);
@@ -93,7 +93,7 @@ class _ProfileView extends StatelessWidget {
             empty: () => Center(
                 child: Text('No profile yet. Tap edit to create.',
                     style: GoogleFonts.inter())),
-            loaded: (profile) => SingleChildScrollView(
+            loaded: (profile, isBiometricEnabled) => SingleChildScrollView(
               padding: EdgeInsets.all(16.w),
               child: Column(
                 children: [
@@ -104,6 +104,10 @@ class _ProfileView extends StatelessWidget {
                     _buildDetailRow(context, 'Date of Birth',
                         DateFormat('dd MMM yyyy').format(profile.dob)),
                     _buildDetailRow(context, 'GP Practice', profile.gpPractice),
+                  ]),
+                  SizedBox(height: 24.h),
+                  _buildSection(context, 'Security', [
+                    _buildBiometricToggle(context, profile, isBiometricEnabled),
                   ]),
                   SizedBox(height: 24.h),
                   _buildSection(context, 'Medical Conditions', [
@@ -119,7 +123,7 @@ class _ProfileView extends StatelessWidget {
                                       style:
                                           GoogleFonts.inter(fontSize: 12.sp)),
                                   backgroundColor:
-                                      AppColors.nhsBlue.withOpacity(0.1),
+                                      AppColors.nhsBlue.withValues(alpha: 0.1),
                                 ))
                             .toList(),
                       ),
@@ -204,7 +208,7 @@ class _ProfileView extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -252,6 +256,32 @@ class _ProfileView extends StatelessWidget {
     );
   }
 
+  Widget _buildBiometricToggle(
+      BuildContext context, UserProfile profile, bool isEnabled) {
+    return SwitchListTile(
+      title: Text(
+        'Biometric Authentication',
+        style: GoogleFonts.inter(
+          fontWeight: FontWeight.w500,
+          color: Theme.of(context).colorScheme.onSurface,
+        ),
+      ),
+      subtitle: Text(
+        'Require fingerprint or FaceID to open the app',
+        style: GoogleFonts.inter(
+          fontSize: 12.sp,
+          color: Theme.of(context).colorScheme.onSurfaceVariant,
+        ),
+      ),
+      value: isEnabled,
+      activeThumbColor: AppColors.nhsBlue,
+      contentPadding: EdgeInsets.zero,
+      onChanged: (value) {
+        context.read<ProfileBloc>().add(ProfileEvent.toggleBiometric(value));
+      },
+    );
+  }
+
   Widget _buildPrivacySection(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -259,7 +289,7 @@ class _ProfileView extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -367,7 +397,7 @@ class _ProfileView extends StatelessWidget {
       leading: Container(
         padding: EdgeInsets.all(8.w),
         decoration: BoxDecoration(
-          color: AppColors.nhsBlue.withOpacity(0.1),
+          color: AppColors.nhsBlue.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(8.r),
         ),
         child: Icon(icon, color: AppColors.nhsBlue),
@@ -396,14 +426,63 @@ class _ProfileView extends StatelessWidget {
       return;
     }
 
+    // 2. Select Date Range
+    final firstDate = metrics
+        .map((m) => m.recordedAt)
+        .reduce((a, b) => a.isBefore(b) ? a : b);
+    final lastDate = DateTime.now();
+
+    if (!context.mounted) return;
+    final DateTimeRange? pickedRange = await showDateRangePicker(
+      context: context,
+      firstDate: firstDate,
+      lastDate: lastDate,
+      initialDateRange: DateTimeRange(
+        start: firstDate,
+        end: lastDate,
+      ),
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            colorScheme: Theme.of(context).colorScheme.copyWith(
+                  primary: AppColors.nhsBlue,
+                  onPrimary: Colors.white,
+                ),
+          ),
+          child: child!,
+        );
+      },
+    );
+
+    if (pickedRange == null) return;
+
+    // 3. Filter metrics
+    final filteredMetrics = metrics
+        .where((m) =>
+            m.recordedAt.isAfter(
+                pickedRange.start.subtract(const Duration(seconds: 1))) &&
+            m.recordedAt.isBefore(pickedRange.end.add(const Duration(days: 1))))
+        .toList();
+
+    if (filteredMetrics.isEmpty) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+              content: Text('No health data found for the selected range.')),
+        );
+      }
+      return;
+    }
+
+    // 4. Export and Share
     try {
       final exportService = ExportService();
       if (format == 'csv') {
-        await exportService.exportToCsv(metrics);
+        await exportService.exportToCsv(filteredMetrics);
       } else if (format == 'pdf') {
-        await exportService.exportToPdf(metrics);
+        await exportService.exportToPdf(filteredMetrics);
       } else if (format == 'json') {
-        await exportService.exportToJson(metrics);
+        await exportService.exportToJson(filteredMetrics);
       }
     } catch (e) {
       if (context.mounted) {

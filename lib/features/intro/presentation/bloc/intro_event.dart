@@ -5,4 +5,5 @@ class IntroEvent with _$IntroEvent {
   const factory IntroEvent.checkStatus() = _CheckStatus;
   const factory IntroEvent.complete() = _Complete;
   const factory IntroEvent.acceptDisclaimer() = _AcceptDisclaimer;
+  const factory IntroEvent.biometricAuthenticated() = _BiometricAuthenticated;
 }

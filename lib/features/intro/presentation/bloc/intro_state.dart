@@ -5,6 +5,8 @@ class IntroState with _$IntroState {
   const factory IntroState.initial() = _Initial;
   const factory IntroState.loading() = _Loading;
   const factory IntroState.required() = _Required;
-  const factory IntroState.disclaimerRequired() = _DisclaimerRequired;
+  const factory IntroState.disclaimerRequired({@Default(0) int timestamp}) =
+      _DisclaimerRequired;
+  const factory IntroState.biometricRequired() = _BiometricRequired;
   const factory IntroState.completed() = _Completed;
 }

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../bloc/intro_bloc.dart';
+import '../widgets/disclaimer_dialog.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -46,6 +47,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       listener: (context, state) {
         state.mapOrNull(
           completed: (_) => context.go('/dashboard'),
+          disclaimerRequired: (_) => showDisclaimerDialog(context),
         );
       },
       child: Scaffold(

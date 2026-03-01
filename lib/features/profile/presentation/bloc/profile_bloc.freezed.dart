@@ -20,18 +20,21 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() loadProfile,
     required TResult Function(UserProfile profile) saveProfile,
+    required TResult Function(bool enabled) toggleBiometric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadProfile,
     TResult? Function(UserProfile profile)? saveProfile,
+    TResult? Function(bool enabled)? toggleBiometric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadProfile,
     TResult Function(UserProfile profile)? saveProfile,
+    TResult Function(bool enabled)? toggleBiometric,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProfile value) loadProfile,
     required TResult Function(_SaveProfile value) saveProfile,
+    required TResult Function(_ToggleBiometric value) toggleBiometric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProfile value)? loadProfile,
     TResult? Function(_SaveProfile value)? saveProfile,
+    TResult? Function(_ToggleBiometric value)? toggleBiometric,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProfile value)? loadProfile,
     TResult Function(_SaveProfile value)? saveProfile,
+    TResult Function(_ToggleBiometric value)? toggleBiometric,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   TResult when<TResult extends Object?>({
     required TResult Function() loadProfile,
     required TResult Function(UserProfile profile) saveProfile,
+    required TResult Function(bool enabled) toggleBiometric,
   }) {
     return loadProfile();
   }
@@ -123,6 +130,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadProfile,
     TResult? Function(UserProfile profile)? saveProfile,
+    TResult? Function(bool enabled)? toggleBiometric,
   }) {
     return loadProfile?.call();
   }
@@ -132,6 +140,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadProfile,
     TResult Function(UserProfile profile)? saveProfile,
+    TResult Function(bool enabled)? toggleBiometric,
     required TResult orElse(),
   }) {
     if (loadProfile != null) {
@@ -145,6 +154,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProfile value) loadProfile,
     required TResult Function(_SaveProfile value) saveProfile,
+    required TResult Function(_ToggleBiometric value) toggleBiometric,
   }) {
     return loadProfile(this);
   }
@@ -154,6 +164,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProfile value)? loadProfile,
     TResult? Function(_SaveProfile value)? saveProfile,
+    TResult? Function(_ToggleBiometric value)? toggleBiometric,
   }) {
     return loadProfile?.call(this);
   }
@@ -163,6 +174,7 @@ class _$LoadProfileImpl implements _LoadProfile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProfile value)? loadProfile,
     TResult Function(_SaveProfile value)? saveProfile,
+    TResult Function(_ToggleBiometric value)? toggleBiometric,
     required TResult orElse(),
   }) {
     if (loadProfile != null) {
@@ -242,6 +254,7 @@ class _$SaveProfileImpl implements _SaveProfile {
   TResult when<TResult extends Object?>({
     required TResult Function() loadProfile,
     required TResult Function(UserProfile profile) saveProfile,
+    required TResult Function(bool enabled) toggleBiometric,
   }) {
     return saveProfile(profile);
   }
@@ -251,6 +264,7 @@ class _$SaveProfileImpl implements _SaveProfile {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loadProfile,
     TResult? Function(UserProfile profile)? saveProfile,
+    TResult? Function(bool enabled)? toggleBiometric,
   }) {
     return saveProfile?.call(profile);
   }
@@ -260,6 +274,7 @@ class _$SaveProfileImpl implements _SaveProfile {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadProfile,
     TResult Function(UserProfile profile)? saveProfile,
+    TResult Function(bool enabled)? toggleBiometric,
     required TResult orElse(),
   }) {
     if (saveProfile != null) {
@@ -273,6 +288,7 @@ class _$SaveProfileImpl implements _SaveProfile {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadProfile value) loadProfile,
     required TResult Function(_SaveProfile value) saveProfile,
+    required TResult Function(_ToggleBiometric value) toggleBiometric,
   }) {
     return saveProfile(this);
   }
@@ -282,6 +298,7 @@ class _$SaveProfileImpl implements _SaveProfile {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadProfile value)? loadProfile,
     TResult? Function(_SaveProfile value)? saveProfile,
+    TResult? Function(_ToggleBiometric value)? toggleBiometric,
   }) {
     return saveProfile?.call(this);
   }
@@ -291,6 +308,7 @@ class _$SaveProfileImpl implements _SaveProfile {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadProfile value)? loadProfile,
     TResult Function(_SaveProfile value)? saveProfile,
+    TResult Function(_ToggleBiometric value)? toggleBiometric,
     required TResult orElse(),
   }) {
     if (saveProfile != null) {
@@ -310,12 +328,153 @@ abstract class _SaveProfile implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleBiometricImplCopyWith<$Res> {
+  factory _$$ToggleBiometricImplCopyWith(_$ToggleBiometricImpl value,
+          $Res Function(_$ToggleBiometricImpl) then) =
+      __$$ToggleBiometricImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool enabled});
+}
+
+/// @nodoc
+class __$$ToggleBiometricImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ToggleBiometricImpl>
+    implements _$$ToggleBiometricImplCopyWith<$Res> {
+  __$$ToggleBiometricImplCopyWithImpl(
+      _$ToggleBiometricImpl _value, $Res Function(_$ToggleBiometricImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? enabled = null,
+  }) {
+    return _then(_$ToggleBiometricImpl(
+      null == enabled
+          ? _value.enabled
+          : enabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleBiometricImpl implements _ToggleBiometric {
+  const _$ToggleBiometricImpl(this.enabled);
+
+  @override
+  final bool enabled;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.toggleBiometric(enabled: $enabled)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleBiometricImpl &&
+            (identical(other.enabled, enabled) || other.enabled == enabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, enabled);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleBiometricImplCopyWith<_$ToggleBiometricImpl> get copyWith =>
+      __$$ToggleBiometricImplCopyWithImpl<_$ToggleBiometricImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadProfile,
+    required TResult Function(UserProfile profile) saveProfile,
+    required TResult Function(bool enabled) toggleBiometric,
+  }) {
+    return toggleBiometric(enabled);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loadProfile,
+    TResult? Function(UserProfile profile)? saveProfile,
+    TResult? Function(bool enabled)? toggleBiometric,
+  }) {
+    return toggleBiometric?.call(enabled);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadProfile,
+    TResult Function(UserProfile profile)? saveProfile,
+    TResult Function(bool enabled)? toggleBiometric,
+    required TResult orElse(),
+  }) {
+    if (toggleBiometric != null) {
+      return toggleBiometric(enabled);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadProfile value) loadProfile,
+    required TResult Function(_SaveProfile value) saveProfile,
+    required TResult Function(_ToggleBiometric value) toggleBiometric,
+  }) {
+    return toggleBiometric(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadProfile value)? loadProfile,
+    TResult? Function(_SaveProfile value)? saveProfile,
+    TResult? Function(_ToggleBiometric value)? toggleBiometric,
+  }) {
+    return toggleBiometric?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadProfile value)? loadProfile,
+    TResult Function(_SaveProfile value)? saveProfile,
+    TResult Function(_ToggleBiometric value)? toggleBiometric,
+    required TResult orElse(),
+  }) {
+    if (toggleBiometric != null) {
+      return toggleBiometric(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleBiometric implements ProfileEvent {
+  const factory _ToggleBiometric(final bool enabled) = _$ToggleBiometricImpl;
+
+  bool get enabled;
+  @JsonKey(ignore: true)
+  _$$ToggleBiometricImplCopyWith<_$ToggleBiometricImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ProfileState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserProfile profile) loaded,
+    required TResult Function(UserProfile profile, bool isBiometricEnabled)
+        loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) =>
@@ -324,7 +483,7 @@ mixin _$ProfileState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserProfile profile)? loaded,
+    TResult? Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) =>
@@ -333,7 +492,7 @@ mixin _$ProfileState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserProfile profile)? loaded,
+    TResult Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -427,7 +586,8 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserProfile profile) loaded,
+    required TResult Function(UserProfile profile, bool isBiometricEnabled)
+        loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -439,7 +599,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserProfile profile)? loaded,
+    TResult? Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
@@ -451,7 +611,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserProfile profile)? loaded,
+    TResult Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -547,7 +707,8 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserProfile profile) loaded,
+    required TResult Function(UserProfile profile, bool isBiometricEnabled)
+        loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -559,7 +720,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserProfile profile)? loaded,
+    TResult? Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
@@ -571,7 +732,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserProfile profile)? loaded,
+    TResult Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -633,7 +794,7 @@ abstract class _$$LoadedImplCopyWith<$Res> {
           _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
       __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserProfile profile});
+  $Res call({UserProfile profile, bool isBiometricEnabled});
 }
 
 /// @nodoc
@@ -648,12 +809,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? profile = null,
+    Object? isBiometricEnabled = null,
   }) {
     return _then(_$LoadedImpl(
-      null == profile
+      profile: null == profile
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as UserProfile,
+      isBiometricEnabled: null == isBiometricEnabled
+          ? _value.isBiometricEnabled
+          : isBiometricEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -661,14 +827,17 @@ class __$$LoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadedImpl implements _Loaded {
-  const _$LoadedImpl(this.profile);
+  const _$LoadedImpl({required this.profile, this.isBiometricEnabled = false});
 
   @override
   final UserProfile profile;
+  @override
+  @JsonKey()
+  final bool isBiometricEnabled;
 
   @override
   String toString() {
-    return 'ProfileState.loaded(profile: $profile)';
+    return 'ProfileState.loaded(profile: $profile, isBiometricEnabled: $isBiometricEnabled)';
   }
 
   @override
@@ -676,11 +845,13 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            (identical(other.profile, profile) || other.profile == profile));
+            (identical(other.profile, profile) || other.profile == profile) &&
+            (identical(other.isBiometricEnabled, isBiometricEnabled) ||
+                other.isBiometricEnabled == isBiometricEnabled));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, profile);
+  int get hashCode => Object.hash(runtimeType, profile, isBiometricEnabled);
 
   @JsonKey(ignore: true)
   @override
@@ -693,11 +864,12 @@ class _$LoadedImpl implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserProfile profile) loaded,
+    required TResult Function(UserProfile profile, bool isBiometricEnabled)
+        loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
-    return loaded(profile);
+    return loaded(profile, isBiometricEnabled);
   }
 
   @override
@@ -705,11 +877,11 @@ class _$LoadedImpl implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserProfile profile)? loaded,
+    TResult? Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(profile);
+    return loaded?.call(profile, isBiometricEnabled);
   }
 
   @override
@@ -717,13 +889,13 @@ class _$LoadedImpl implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserProfile profile)? loaded,
+    TResult Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(profile);
+      return loaded(profile, isBiometricEnabled);
     }
     return orElse();
   }
@@ -770,9 +942,12 @@ class _$LoadedImpl implements _Loaded {
 }
 
 abstract class _Loaded implements ProfileState {
-  const factory _Loaded(final UserProfile profile) = _$LoadedImpl;
+  const factory _Loaded(
+      {required final UserProfile profile,
+      final bool isBiometricEnabled}) = _$LoadedImpl;
 
   UserProfile get profile;
+  bool get isBiometricEnabled;
   @JsonKey(ignore: true)
   _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -818,7 +993,8 @@ class _$EmptyImpl implements _Empty {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserProfile profile) loaded,
+    required TResult Function(UserProfile profile, bool isBiometricEnabled)
+        loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -830,7 +1006,7 @@ class _$EmptyImpl implements _Empty {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserProfile profile)? loaded,
+    TResult? Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
@@ -842,7 +1018,7 @@ class _$EmptyImpl implements _Empty {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserProfile profile)? loaded,
+    TResult Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),
@@ -964,7 +1140,8 @@ class _$ErrorImpl implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserProfile profile) loaded,
+    required TResult Function(UserProfile profile, bool isBiometricEnabled)
+        loaded,
     required TResult Function() empty,
     required TResult Function(String message) error,
   }) {
@@ -976,7 +1153,7 @@ class _$ErrorImpl implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserProfile profile)? loaded,
+    TResult? Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult? Function()? empty,
     TResult? Function(String message)? error,
   }) {
@@ -988,7 +1165,7 @@ class _$ErrorImpl implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserProfile profile)? loaded,
+    TResult Function(UserProfile profile, bool isBiometricEnabled)? loaded,
     TResult Function()? empty,
     TResult Function(String message)? error,
     required TResult orElse(),

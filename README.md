@@ -8,6 +8,9 @@ A modern, comprehensive, NHS-inspired personal health and appointment tracker mo
 - **Appointments Management:** Seamlessly book, track, update, and cancel GP appointments.
 - **Repeat Prescriptions:** Monitor active medications and track refills with clear visual indicators.
 - **Health Metrics Tracking:** Log and visualize critical health data like Blood Pressure, Heart Rate, Weight, and Blood Sugar over time.
+- **Biometric Security:** Enhanced privacy with Fingerprint and FaceID authentication support.
+- **Health Data Export:** Export health records in professional CSV, PDF, and JSON formats for clinical review.
+- **AI Health Assistant:** Integrated Google Gemini AI for personalized health insights and trend analysis.
 - **User Profile:** Manage personal details and NHS number in a unified setting.
 - **Intelligent Notifications:** Stay on top of appointments and medication schedules with local push notifications.
 
@@ -36,8 +39,8 @@ CareSync employs a robust **Clean Architecture** combined with **Flutter BLoC** 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/georgeikwegbu/NHS_health_tracker.git
-   cd NHS_health_tracker
+   git clone https://github.com/gikwegbu/caresync.git
+   cd NHS_caresync
    ```
 
 2. **Install Dependencies:**

@@ -45,5 +45,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>CareSync needs access to your calendar to help you add and manage GP appointments directly from the app.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>CareSync needs access to reminders to provide you with timely medication and appointment alerts.</string>
 </dict>
 </plist>

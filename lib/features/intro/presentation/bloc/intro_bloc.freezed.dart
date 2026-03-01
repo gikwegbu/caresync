@@ -21,6 +21,7 @@ mixin _$IntroEvent {
     required TResult Function() checkStatus,
     required TResult Function() complete,
     required TResult Function() acceptDisclaimer,
+    required TResult Function() biometricAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$IntroEvent {
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
     TResult? Function()? acceptDisclaimer,
+    TResult? Function()? biometricAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$IntroEvent {
     TResult Function()? checkStatus,
     TResult Function()? complete,
     TResult Function()? acceptDisclaimer,
+    TResult Function()? biometricAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$IntroEvent {
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
     required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
+    required TResult Function(_BiometricAuthenticated value)
+        biometricAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$IntroEvent {
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
     TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult? Function(_BiometricAuthenticated value)? biometricAuthenticated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$IntroEvent {
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
     TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult Function(_BiometricAuthenticated value)? biometricAuthenticated,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +128,7 @@ class _$CheckStatusImpl implements _CheckStatus {
     required TResult Function() checkStatus,
     required TResult Function() complete,
     required TResult Function() acceptDisclaimer,
+    required TResult Function() biometricAuthenticated,
   }) {
     return checkStatus();
   }
@@ -131,6 +139,7 @@ class _$CheckStatusImpl implements _CheckStatus {
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
     TResult? Function()? acceptDisclaimer,
+    TResult? Function()? biometricAuthenticated,
   }) {
     return checkStatus?.call();
   }
@@ -141,6 +150,7 @@ class _$CheckStatusImpl implements _CheckStatus {
     TResult Function()? checkStatus,
     TResult Function()? complete,
     TResult Function()? acceptDisclaimer,
+    TResult Function()? biometricAuthenticated,
     required TResult orElse(),
   }) {
     if (checkStatus != null) {
@@ -155,6 +165,8 @@ class _$CheckStatusImpl implements _CheckStatus {
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
     required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
+    required TResult Function(_BiometricAuthenticated value)
+        biometricAuthenticated,
   }) {
     return checkStatus(this);
   }
@@ -165,6 +177,7 @@ class _$CheckStatusImpl implements _CheckStatus {
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
     TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult? Function(_BiometricAuthenticated value)? biometricAuthenticated,
   }) {
     return checkStatus?.call(this);
   }
@@ -175,6 +188,7 @@ class _$CheckStatusImpl implements _CheckStatus {
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
     TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult Function(_BiometricAuthenticated value)? biometricAuthenticated,
     required TResult orElse(),
   }) {
     if (checkStatus != null) {
@@ -229,6 +243,7 @@ class _$CompleteImpl implements _Complete {
     required TResult Function() checkStatus,
     required TResult Function() complete,
     required TResult Function() acceptDisclaimer,
+    required TResult Function() biometricAuthenticated,
   }) {
     return complete();
   }
@@ -239,6 +254,7 @@ class _$CompleteImpl implements _Complete {
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
     TResult? Function()? acceptDisclaimer,
+    TResult? Function()? biometricAuthenticated,
   }) {
     return complete?.call();
   }
@@ -249,6 +265,7 @@ class _$CompleteImpl implements _Complete {
     TResult Function()? checkStatus,
     TResult Function()? complete,
     TResult Function()? acceptDisclaimer,
+    TResult Function()? biometricAuthenticated,
     required TResult orElse(),
   }) {
     if (complete != null) {
@@ -263,6 +280,8 @@ class _$CompleteImpl implements _Complete {
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
     required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
+    required TResult Function(_BiometricAuthenticated value)
+        biometricAuthenticated,
   }) {
     return complete(this);
   }
@@ -273,6 +292,7 @@ class _$CompleteImpl implements _Complete {
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
     TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult? Function(_BiometricAuthenticated value)? biometricAuthenticated,
   }) {
     return complete?.call(this);
   }
@@ -283,6 +303,7 @@ class _$CompleteImpl implements _Complete {
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
     TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult Function(_BiometricAuthenticated value)? biometricAuthenticated,
     required TResult orElse(),
   }) {
     if (complete != null) {
@@ -337,6 +358,7 @@ class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
     required TResult Function() checkStatus,
     required TResult Function() complete,
     required TResult Function() acceptDisclaimer,
+    required TResult Function() biometricAuthenticated,
   }) {
     return acceptDisclaimer();
   }
@@ -347,6 +369,7 @@ class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
     TResult? Function()? checkStatus,
     TResult? Function()? complete,
     TResult? Function()? acceptDisclaimer,
+    TResult? Function()? biometricAuthenticated,
   }) {
     return acceptDisclaimer?.call();
   }
@@ -357,6 +380,7 @@ class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
     TResult Function()? checkStatus,
     TResult Function()? complete,
     TResult Function()? acceptDisclaimer,
+    TResult Function()? biometricAuthenticated,
     required TResult orElse(),
   }) {
     if (acceptDisclaimer != null) {
@@ -371,6 +395,8 @@ class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
     required TResult Function(_CheckStatus value) checkStatus,
     required TResult Function(_Complete value) complete,
     required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
+    required TResult Function(_BiometricAuthenticated value)
+        biometricAuthenticated,
   }) {
     return acceptDisclaimer(this);
   }
@@ -381,6 +407,7 @@ class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
     TResult? Function(_CheckStatus value)? checkStatus,
     TResult? Function(_Complete value)? complete,
     TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult? Function(_BiometricAuthenticated value)? biometricAuthenticated,
   }) {
     return acceptDisclaimer?.call(this);
   }
@@ -391,6 +418,7 @@ class _$AcceptDisclaimerImpl implements _AcceptDisclaimer {
     TResult Function(_CheckStatus value)? checkStatus,
     TResult Function(_Complete value)? complete,
     TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult Function(_BiometricAuthenticated value)? biometricAuthenticated,
     required TResult orElse(),
   }) {
     if (acceptDisclaimer != null) {
@@ -405,13 +433,132 @@ abstract class _AcceptDisclaimer implements IntroEvent {
 }
 
 /// @nodoc
+abstract class _$$BiometricAuthenticatedImplCopyWith<$Res> {
+  factory _$$BiometricAuthenticatedImplCopyWith(
+          _$BiometricAuthenticatedImpl value,
+          $Res Function(_$BiometricAuthenticatedImpl) then) =
+      __$$BiometricAuthenticatedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BiometricAuthenticatedImplCopyWithImpl<$Res>
+    extends _$IntroEventCopyWithImpl<$Res, _$BiometricAuthenticatedImpl>
+    implements _$$BiometricAuthenticatedImplCopyWith<$Res> {
+  __$$BiometricAuthenticatedImplCopyWithImpl(
+      _$BiometricAuthenticatedImpl _value,
+      $Res Function(_$BiometricAuthenticatedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$BiometricAuthenticatedImpl implements _BiometricAuthenticated {
+  const _$BiometricAuthenticatedImpl();
+
+  @override
+  String toString() {
+    return 'IntroEvent.biometricAuthenticated()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BiometricAuthenticatedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkStatus,
+    required TResult Function() complete,
+    required TResult Function() acceptDisclaimer,
+    required TResult Function() biometricAuthenticated,
+  }) {
+    return biometricAuthenticated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkStatus,
+    TResult? Function()? complete,
+    TResult? Function()? acceptDisclaimer,
+    TResult? Function()? biometricAuthenticated,
+  }) {
+    return biometricAuthenticated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkStatus,
+    TResult Function()? complete,
+    TResult Function()? acceptDisclaimer,
+    TResult Function()? biometricAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (biometricAuthenticated != null) {
+      return biometricAuthenticated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckStatus value) checkStatus,
+    required TResult Function(_Complete value) complete,
+    required TResult Function(_AcceptDisclaimer value) acceptDisclaimer,
+    required TResult Function(_BiometricAuthenticated value)
+        biometricAuthenticated,
+  }) {
+    return biometricAuthenticated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckStatus value)? checkStatus,
+    TResult? Function(_Complete value)? complete,
+    TResult? Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult? Function(_BiometricAuthenticated value)? biometricAuthenticated,
+  }) {
+    return biometricAuthenticated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckStatus value)? checkStatus,
+    TResult Function(_Complete value)? complete,
+    TResult Function(_AcceptDisclaimer value)? acceptDisclaimer,
+    TResult Function(_BiometricAuthenticated value)? biometricAuthenticated,
+    required TResult orElse(),
+  }) {
+    if (biometricAuthenticated != null) {
+      return biometricAuthenticated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BiometricAuthenticated implements IntroEvent {
+  const factory _BiometricAuthenticated() = _$BiometricAuthenticatedImpl;
+}
+
+/// @nodoc
 mixin _$IntroState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
-    required TResult Function() disclaimerRequired,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
     required TResult Function() completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -420,7 +567,8 @@ mixin _$IntroState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
-    TResult? Function()? disclaimerRequired,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
     TResult? Function()? completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -429,7 +577,8 @@ mixin _$IntroState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
-    TResult Function()? disclaimerRequired,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) =>
@@ -440,6 +589,7 @@ mixin _$IntroState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
     required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
     required TResult Function(_Completed value) completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -449,6 +599,7 @@ mixin _$IntroState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
     TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
     TResult? Function(_Completed value)? completed,
   }) =>
       throw _privateConstructorUsedError;
@@ -458,6 +609,7 @@ mixin _$IntroState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
     TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) =>
@@ -523,7 +675,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
-    required TResult Function() disclaimerRequired,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
     required TResult Function() completed,
   }) {
     return initial();
@@ -535,7 +688,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
-    TResult? Function()? disclaimerRequired,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
     TResult? Function()? completed,
   }) {
     return initial?.call();
@@ -547,7 +701,8 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
-    TResult Function()? disclaimerRequired,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -564,6 +719,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
     required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return initial(this);
@@ -576,6 +732,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
     TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return initial?.call(this);
@@ -588,6 +745,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
     TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -643,7 +801,8 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
-    required TResult Function() disclaimerRequired,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
     required TResult Function() completed,
   }) {
     return loading();
@@ -655,7 +814,8 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
-    TResult? Function()? disclaimerRequired,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
     TResult? Function()? completed,
   }) {
     return loading?.call();
@@ -667,7 +827,8 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
-    TResult Function()? disclaimerRequired,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -684,6 +845,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
     required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return loading(this);
@@ -696,6 +858,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
     TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return loading?.call(this);
@@ -708,6 +871,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
     TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -763,7 +927,8 @@ class _$RequiredImpl implements _Required {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
-    required TResult Function() disclaimerRequired,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
     required TResult Function() completed,
   }) {
     return required();
@@ -775,7 +940,8 @@ class _$RequiredImpl implements _Required {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
-    TResult? Function()? disclaimerRequired,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
     TResult? Function()? completed,
   }) {
     return required?.call();
@@ -787,7 +953,8 @@ class _$RequiredImpl implements _Required {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
-    TResult Function()? disclaimerRequired,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -804,6 +971,7 @@ class _$RequiredImpl implements _Required {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
     required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return required(this);
@@ -816,6 +984,7 @@ class _$RequiredImpl implements _Required {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
     TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return required?.call(this);
@@ -828,6 +997,7 @@ class _$RequiredImpl implements _Required {
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
     TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -847,6 +1017,8 @@ abstract class _$$DisclaimerRequiredImplCopyWith<$Res> {
   factory _$$DisclaimerRequiredImplCopyWith(_$DisclaimerRequiredImpl value,
           $Res Function(_$DisclaimerRequiredImpl) then) =
       __$$DisclaimerRequiredImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int timestamp});
 }
 
 /// @nodoc
@@ -856,26 +1028,53 @@ class __$$DisclaimerRequiredImplCopyWithImpl<$Res>
   __$$DisclaimerRequiredImplCopyWithImpl(_$DisclaimerRequiredImpl _value,
       $Res Function(_$DisclaimerRequiredImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? timestamp = null,
+  }) {
+    return _then(_$DisclaimerRequiredImpl(
+      timestamp: null == timestamp
+          ? _value.timestamp
+          : timestamp // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
-  const _$DisclaimerRequiredImpl();
+  const _$DisclaimerRequiredImpl({this.timestamp = 0});
+
+  @override
+  @JsonKey()
+  final int timestamp;
 
   @override
   String toString() {
-    return 'IntroState.disclaimerRequired()';
+    return 'IntroState.disclaimerRequired(timestamp: $timestamp)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DisclaimerRequiredImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DisclaimerRequiredImpl &&
+            (identical(other.timestamp, timestamp) ||
+                other.timestamp == timestamp));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, timestamp);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DisclaimerRequiredImplCopyWith<_$DisclaimerRequiredImpl> get copyWith =>
+      __$$DisclaimerRequiredImplCopyWithImpl<_$DisclaimerRequiredImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -883,10 +1082,11 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
-    required TResult Function() disclaimerRequired,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
     required TResult Function() completed,
   }) {
-    return disclaimerRequired();
+    return disclaimerRequired(timestamp);
   }
 
   @override
@@ -895,10 +1095,11 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
-    TResult? Function()? disclaimerRequired,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
     TResult? Function()? completed,
   }) {
-    return disclaimerRequired?.call();
+    return disclaimerRequired?.call(timestamp);
   }
 
   @override
@@ -907,12 +1108,13 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
-    TResult Function()? disclaimerRequired,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
     if (disclaimerRequired != null) {
-      return disclaimerRequired();
+      return disclaimerRequired(timestamp);
     }
     return orElse();
   }
@@ -924,6 +1126,7 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
     required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return disclaimerRequired(this);
@@ -936,6 +1139,7 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
     TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return disclaimerRequired?.call(this);
@@ -948,6 +1152,7 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
     TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {
@@ -959,7 +1164,139 @@ class _$DisclaimerRequiredImpl implements _DisclaimerRequired {
 }
 
 abstract class _DisclaimerRequired implements IntroState {
-  const factory _DisclaimerRequired() = _$DisclaimerRequiredImpl;
+  const factory _DisclaimerRequired({final int timestamp}) =
+      _$DisclaimerRequiredImpl;
+
+  int get timestamp;
+  @JsonKey(ignore: true)
+  _$$DisclaimerRequiredImplCopyWith<_$DisclaimerRequiredImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BiometricRequiredImplCopyWith<$Res> {
+  factory _$$BiometricRequiredImplCopyWith(_$BiometricRequiredImpl value,
+          $Res Function(_$BiometricRequiredImpl) then) =
+      __$$BiometricRequiredImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$BiometricRequiredImplCopyWithImpl<$Res>
+    extends _$IntroStateCopyWithImpl<$Res, _$BiometricRequiredImpl>
+    implements _$$BiometricRequiredImplCopyWith<$Res> {
+  __$$BiometricRequiredImplCopyWithImpl(_$BiometricRequiredImpl _value,
+      $Res Function(_$BiometricRequiredImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$BiometricRequiredImpl implements _BiometricRequired {
+  const _$BiometricRequiredImpl();
+
+  @override
+  String toString() {
+    return 'IntroState.biometricRequired()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$BiometricRequiredImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() required,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
+    required TResult Function() completed,
+  }) {
+    return biometricRequired();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? required,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
+    TResult? Function()? completed,
+  }) {
+    return biometricRequired?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? required,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
+    TResult Function()? completed,
+    required TResult orElse(),
+  }) {
+    if (biometricRequired != null) {
+      return biometricRequired();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Required value) required,
+    required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
+    required TResult Function(_Completed value) completed,
+  }) {
+    return biometricRequired(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Required value)? required,
+    TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
+    TResult? Function(_Completed value)? completed,
+  }) {
+    return biometricRequired?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Required value)? required,
+    TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
+    TResult Function(_Completed value)? completed,
+    required TResult orElse(),
+  }) {
+    if (biometricRequired != null) {
+      return biometricRequired(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BiometricRequired implements IntroState {
+  const factory _BiometricRequired() = _$BiometricRequiredImpl;
 }
 
 /// @nodoc
@@ -1003,7 +1340,8 @@ class _$CompletedImpl implements _Completed {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() required,
-    required TResult Function() disclaimerRequired,
+    required TResult Function(int timestamp) disclaimerRequired,
+    required TResult Function() biometricRequired,
     required TResult Function() completed,
   }) {
     return completed();
@@ -1015,7 +1353,8 @@ class _$CompletedImpl implements _Completed {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function()? required,
-    TResult? Function()? disclaimerRequired,
+    TResult? Function(int timestamp)? disclaimerRequired,
+    TResult? Function()? biometricRequired,
     TResult? Function()? completed,
   }) {
     return completed?.call();
@@ -1027,7 +1366,8 @@ class _$CompletedImpl implements _Completed {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? required,
-    TResult Function()? disclaimerRequired,
+    TResult Function(int timestamp)? disclaimerRequired,
+    TResult Function()? biometricRequired,
     TResult Function()? completed,
     required TResult orElse(),
   }) {
@@ -1044,6 +1384,7 @@ class _$CompletedImpl implements _Completed {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Required value) required,
     required TResult Function(_DisclaimerRequired value) disclaimerRequired,
+    required TResult Function(_BiometricRequired value) biometricRequired,
     required TResult Function(_Completed value) completed,
   }) {
     return completed(this);
@@ -1056,6 +1397,7 @@ class _$CompletedImpl implements _Completed {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Required value)? required,
     TResult? Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult? Function(_BiometricRequired value)? biometricRequired,
     TResult? Function(_Completed value)? completed,
   }) {
     return completed?.call(this);
@@ -1068,6 +1410,7 @@ class _$CompletedImpl implements _Completed {
     TResult Function(_Loading value)? loading,
     TResult Function(_Required value)? required,
     TResult Function(_DisclaimerRequired value)? disclaimerRequired,
+    TResult Function(_BiometricRequired value)? biometricRequired,
     TResult Function(_Completed value)? completed,
     required TResult orElse(),
   }) {

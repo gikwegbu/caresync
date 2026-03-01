@@ -17,13 +17,18 @@ const AppSettingsModelSchema = CollectionSchema(
   name: r'AppSettingsModel',
   id: -638838212012723081,
   properties: {
-    r'isDarkMode': PropertySchema(
+    r'isBiometricEnabled': PropertySchema(
       id: 0,
+      name: r'isBiometricEnabled',
+      type: IsarType.bool,
+    ),
+    r'isDarkMode': PropertySchema(
+      id: 1,
       name: r'isDarkMode',
       type: IsarType.bool,
     ),
     r'isOnboardingCompleted': PropertySchema(
-      id: 1,
+      id: 2,
       name: r'isOnboardingCompleted',
       type: IsarType.bool,
     )
@@ -57,8 +62,9 @@ void _appSettingsModelSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeBool(offsets[0], object.isDarkMode);
-  writer.writeBool(offsets[1], object.isOnboardingCompleted);
+  writer.writeBool(offsets[0], object.isBiometricEnabled);
+  writer.writeBool(offsets[1], object.isDarkMode);
+  writer.writeBool(offsets[2], object.isOnboardingCompleted);
 }
 
 AppSettingsModel _appSettingsModelDeserialize(
@@ -69,8 +75,9 @@ AppSettingsModel _appSettingsModelDeserialize(
 ) {
   final object = AppSettingsModel();
   object.id = id;
-  object.isDarkMode = reader.readBool(offsets[0]);
-  object.isOnboardingCompleted = reader.readBool(offsets[1]);
+  object.isBiometricEnabled = reader.readBool(offsets[0]);
+  object.isDarkMode = reader.readBool(offsets[1]);
+  object.isOnboardingCompleted = reader.readBool(offsets[2]);
   return object;
 }
 
@@ -84,6 +91,8 @@ P _appSettingsModelDeserializeProp<P>(
     case 0:
       return (reader.readBool(offset)) as P;
     case 1:
+      return (reader.readBool(offset)) as P;
+    case 2:
       return (reader.readBool(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -241,6 +250,16 @@ extension AppSettingsModelQueryFilter
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
+      isBiometricEnabledEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isBiometricEnabled',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterFilterCondition>
       isDarkModeEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -269,6 +288,20 @@ extension AppSettingsModelQueryLinks
 
 extension AppSettingsModelQuerySortBy
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QSortBy> {
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+      sortByIsBiometricEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBiometricEnabled', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+      sortByIsBiometricEnabledDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBiometricEnabled', Sort.desc);
+    });
+  }
+
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
       sortByIsDarkMode() {
     return QueryBuilder.apply(this, (query) {
@@ -314,6 +347,20 @@ extension AppSettingsModelQuerySortThenBy
   }
 
   QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+      thenByIsBiometricEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBiometricEnabled', Sort.asc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
+      thenByIsBiometricEnabledDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBiometricEnabled', Sort.desc);
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QAfterSortBy>
       thenByIsDarkMode() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isDarkMode', Sort.asc);
@@ -345,6 +392,13 @@ extension AppSettingsModelQuerySortThenBy
 extension AppSettingsModelQueryWhereDistinct
     on QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct> {
   QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
+      distinctByIsBiometricEnabled() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isBiometricEnabled');
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, AppSettingsModel, QDistinct>
       distinctByIsDarkMode() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'isDarkMode');
@@ -364,6 +418,13 @@ extension AppSettingsModelQueryProperty
   QueryBuilder<AppSettingsModel, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
+    });
+  }
+
+  QueryBuilder<AppSettingsModel, bool, QQueryOperations>
+      isBiometricEnabledProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isBiometricEnabled');
     });
   }
 

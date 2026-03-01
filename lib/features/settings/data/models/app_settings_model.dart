@@ -8,5 +8,7 @@ class AppSettingsModel {
 
   bool isOnboardingCompleted = false;
 
+  bool isBiometricEnabled = false;
+
   bool isDarkMode = false;
 }

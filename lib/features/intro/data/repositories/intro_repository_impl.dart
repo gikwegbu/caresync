@@ -24,4 +24,20 @@ class IntroRepositoryImpl implements IntroRepository {
       await _isar.appSettingsModels.put(settings);
     });
   }
+
+  @override
+  Future<bool> isBiometricEnabled() async {
+    final settings = await _isar.appSettingsModels.where().findFirst();
+    return settings?.isBiometricEnabled ?? false;
+  }
+
+  @override
+  Future<void> setBiometricEnabled(bool enabled) async {
+    await _isar.writeTxn(() async {
+      final settings = await _isar.appSettingsModels.where().findFirst() ??
+          AppSettingsModel();
+      settings.isBiometricEnabled = enabled;
+      await _isar.appSettingsModels.put(settings);
+    });
+  }
 }

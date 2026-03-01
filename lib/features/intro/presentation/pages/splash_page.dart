@@ -4,8 +4,10 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_auth/local_auth.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../bloc/intro_bloc.dart';
+import '../widgets/disclaimer_dialog.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -28,7 +30,8 @@ class _SplashPageState extends State<SplashPage> {
         state.whenOrNull(
           required: () => context.go('/onboarding'),
           completed: () => context.go('/dashboard'),
-          disclaimerRequired: () => _showDisclaimerDialog(context),
+          disclaimerRequired: (_) => showDisclaimerDialog(context),
+          biometricRequired: () => _authenticate(context),
         );
       },
       child: Scaffold(
@@ -111,59 +114,45 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 
-  void _showDisclaimerDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) {
-        return PopScope(
-          canPop: false,
-          child: AlertDialog(
-            title: Text(
-              'About This App & Data Privacy',
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-            content: SingleChildScrollView(
-              child: Text(
-                "This app is a personalised project built for individual use. By continuing, you acknowledge that you are choosing to use this app of your own accord.\n\nYour health data is stored locally on your device and is not transmitted to any external server, except when you choose to use the AI Chatbot feature, at which point your reading data is sent to Google's Gemini API for analysis.\n\nBy using this app, you accept these terms.",
-                style: GoogleFonts.inter(
-                  fontSize: 14.sp,
-                  height: 1.5,
-                ),
-              ),
-            ),
-            actions: [
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.nhsBlue,
-                    foregroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(vertical: 16.h),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                    context
-                        .read<IntroBloc>()
-                        .add(const IntroEvent.acceptDisclaimer());
-                  },
-                  child: Text(
-                    'I Understand & Continue',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-            ],
+  Future<void> _authenticate(BuildContext context) async {
+    final localAuth = LocalAuthentication();
+    // Failsafe fallback for simulator
+    // context.read<IntroBloc>().add(const IntroEvent.biometricAuthenticated());
+    try {
+      final bool canAuthenticateWithBiometrics =
+          await localAuth.canCheckBiometrics;
+      final bool canAuthenticate =
+          canAuthenticateWithBiometrics || await localAuth.isDeviceSupported();
+
+      if (canAuthenticate) {
+        final bool didAuthenticate = await localAuth.authenticate(
+          localizedReason: 'Please authenticate to access CareSync',
+          options: const AuthenticationOptions(
+            stickyAuth: true,
+            biometricOnly: false,
           ),
         );
-      },
-    );
+
+        if (didAuthenticate && context.mounted) {
+          context
+              .read<IntroBloc>()
+              .add(const IntroEvent.biometricAuthenticated());
+        }
+      } else {
+        // If biometrics not available but enabled, skip or show error?
+        // For now, allow entry if device doesn't support it anymore
+        if (context.mounted) {
+          context
+              .read<IntroBloc>()
+              .add(const IntroEvent.biometricAuthenticated());
+        }
+      }
+    } catch (e) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Authentication error: $e')),
+        );
+      }
+    }
   }
 }
