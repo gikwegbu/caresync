@@ -6,6 +6,7 @@ import '../../features/prescriptions/data/models/prescription_model.dart';
 import '../../features/health_metrics/data/models/health_metric_model.dart';
 import '../../features/profile/data/models/user_profile_model.dart';
 import '../../features/settings/data/models/app_settings_model.dart';
+import '../../features/chat/domain/entities/chat_message_entity.dart';
 
 @module
 abstract class DatabaseModule {
@@ -20,6 +21,7 @@ abstract class DatabaseModule {
           HealthMetricModelSchema,
           UserProfileModelSchema,
           AppSettingsModelSchema,
+          ChatMessageEntitySchema,
         ],
         directory: dir.path,
       );

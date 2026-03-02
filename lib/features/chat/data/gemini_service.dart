@@ -3,12 +3,16 @@ import '../../../../core/constants/api_keys.dart';
 import '../../health_metrics/domain/entities/health_metric.dart';
 import '../domain/entities/chat_message_entity.dart';
 
+// TODO: Run
+// curl "https://generativelanguage.googleapis.com/v1beta/models?key=YOUR_API_KEY"
+// To see available models and update the GeminiChatService accordingly. Gemini 2.5 Flash is currently the most advanced model as of June 2024, but this may change in the future.
+
 class GeminiChatService {
   final GenerativeModel _model;
 
   GeminiChatService()
       : _model = GenerativeModel(
-          model: 'gemini-1.5-flash',
+          model: 'gemini-2.5-flash',
           apiKey: ApiKeys.geminiApiKey,
           systemInstruction: Content.system(
             "You are a seasoned professional laboratory scientist and medical doctor with deep expertise in interpreting medical and health data. "
@@ -51,7 +55,8 @@ class GeminiChatService {
       final response = await _chat!.sendMessage(Content.text(message));
       return response.text ?? 'Sorry, I could not generate a response.';
     } catch (e) {
-      return 'Error connecting to AI service. Please check your API key and connection.';
+      print('Gemini Error: $e');
+      return 'Error connecting to AI service ($e). Please check your API key and connection.';
     }
   }
 
